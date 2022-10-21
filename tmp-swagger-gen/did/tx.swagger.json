@@ -1,0 +1,206 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "did/tx.proto",
+    "version": "version not set"
+  },
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {},
+  "definitions": {
+    "millicent.cash.did.DidDocument": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "@context is spec for did document."
+        },
+        "id": {
+          "type": "string",
+          "description": "id represents the id for the did document."
+        },
+        "controller": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "A DID controller is an entity that is authorized to make changes to a DID document.\ncfr. https://www.w3.org/TR/did-core/#did-controller"
+        },
+        "verificationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.did.VerificationMethod"
+          },
+          "title": "A DID document can express verification methods, \nsuch as cryptographic public keys, which can be used \nto authenticate or authorize interactions with the DID subject or associated parties.\nhttps://www.w3.org/TR/did-core/#verification-methods"
+        },
+        "service": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.did.Service"
+          },
+          "title": "Services are used in DID documents to express ways of communicating \nwith the DID subject or associated entities.\nhttps://www.w3.org/TR/did-core/#services"
+        },
+        "authentication": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Authentication represents public key associated with the did document.\ncfr. https://www.w3.org/TR/did-core/#authentication"
+        },
+        "assertionMethod": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Used to specify how the DID subject is expected to express claims, \nsuch as for the purposes of issuing a Verifiable Credential.\ncfr. https://www.w3.org/TR/did-core/#assertion"
+        },
+        "keyAgreement": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "used to specify how an entity can generate encryption material \nin order to transmit confidential information intended for the DID subject.\nhttps://www.w3.org/TR/did-core/#key-agreement"
+        },
+        "capabilityInvocation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Used to specify a verification method that might be used by the DID subject\nto invoke a cryptographic capability, such as the authorization \nto update the DID Document.\nhttps://www.w3.org/TR/did-core/#capability-invocation"
+        },
+        "capabilityDelegation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Used to specify a mechanism that might be used by the DID subject \nto delegate a cryptographic capability to another party.\nhttps://www.w3.org/TR/did-core/#capability-delegation"
+        }
+      },
+      "description": "DidDocument represents a dencentralised identifer."
+    },
+    "millicent.cash.did.MsgAddControllerResponse": {
+      "type": "object"
+    },
+    "millicent.cash.did.MsgAddServiceResponse": {
+      "type": "object"
+    },
+    "millicent.cash.did.MsgAddVerificationResponse": {
+      "type": "object"
+    },
+    "millicent.cash.did.MsgCreateDidDocumentResponse": {
+      "type": "object"
+    },
+    "millicent.cash.did.MsgDeleteControllerResponse": {
+      "type": "object"
+    },
+    "millicent.cash.did.MsgDeleteServiceResponse": {
+      "type": "object"
+    },
+    "millicent.cash.did.MsgRevokeVerificationResponse": {
+      "type": "object"
+    },
+    "millicent.cash.did.MsgSetVerificationRelationshipsResponse": {
+      "type": "object"
+    },
+    "millicent.cash.did.MsgUpdateDidDocumentResponse": {
+      "type": "object"
+    },
+    "millicent.cash.did.Service": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "serviceEndpoint": {
+          "type": "string"
+        }
+      },
+      "title": "Service defines how to find data associated with a identifer"
+    },
+    "millicent.cash.did.Verification": {
+      "type": "object",
+      "properties": {
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "verificationRelationships defines which relationships\nare allowed to use the verification method"
+        },
+        "method": {
+          "$ref": "#/definitions/millicent.cash.did.VerificationMethod"
+        },
+        "context": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Verification is a message that allows to assign a verification method\nto one or more verification relationships"
+    },
+    "millicent.cash.did.VerificationMethod": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "controller": {
+          "type": "string"
+        },
+        "blockchainAccountID": {
+          "type": "string"
+        },
+        "publicKeyHex": {
+          "type": "string"
+        },
+        "publicKeyMultibase": {
+          "type": "string"
+        }
+      },
+      "title": "A DID document can express verification methods, \nsuch as cryptographic public keys, which can be used \nto authenticate or authorize interactions \nwith the DID subject or associated parties. \nhttps://www.w3.org/TR/did-core/#verification-methods"
+    },
+    "google.protobuf.Any": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "grpc.gateway.runtime.Error": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/google.protobuf.Any"
+          }
+        }
+      }
+    }
+  }
+}

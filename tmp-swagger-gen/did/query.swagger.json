@@ -1,0 +1,936 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "did/query.proto",
+    "version": "version not set"
+  },
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/millicash/did/dids": {
+      "get": {
+        "summary": "DidDocuments queries all did documents that match the given status.",
+        "operationId": "DidDocuments",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/millicent.cash.did.QueryDidDocumentsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "status",
+            "description": "status enables to query for validators matching a given status.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pagination.key",
+            "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "byte"
+          },
+          {
+            "name": "pagination.offset",
+            "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "pagination.limit",
+            "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "pagination.count_total",
+            "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "pagination.reverse",
+            "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": ["Query"]
+      }
+    },
+    "/millicash/did/dids/{id}": {
+      "get": {
+        "summary": "DidDocument queries a did documents with an id.",
+        "operationId": "DidDocument",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/millicent.cash.did.QueryDidDocumentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "status enables to query for validators matching a given status.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["Query"]
+      }
+    }
+  },
+  "definitions": {
+    "millicent.cash.did.DidDocument": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "@context is spec for did document."
+        },
+        "id": {
+          "type": "string",
+          "description": "id represents the id for the did document."
+        },
+        "controller": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "A DID controller is an entity that is authorized to make changes to a DID document.\ncfr. https://www.w3.org/TR/did-core/#did-controller"
+        },
+        "verificationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.did.VerificationMethod"
+          },
+          "title": "A DID document can express verification methods, \nsuch as cryptographic public keys, which can be used \nto authenticate or authorize interactions with the DID subject or associated parties.\nhttps://www.w3.org/TR/did-core/#verification-methods"
+        },
+        "service": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.did.Service"
+          },
+          "title": "Services are used in DID documents to express ways of communicating \nwith the DID subject or associated entities.\nhttps://www.w3.org/TR/did-core/#services"
+        },
+        "authentication": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Authentication represents public key associated with the did document.\ncfr. https://www.w3.org/TR/did-core/#authentication"
+        },
+        "assertionMethod": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Used to specify how the DID subject is expected to express claims, \nsuch as for the purposes of issuing a Verifiable Credential.\ncfr. https://www.w3.org/TR/did-core/#assertion"
+        },
+        "keyAgreement": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "used to specify how an entity can generate encryption material \nin order to transmit confidential information intended for the DID subject.\nhttps://www.w3.org/TR/did-core/#key-agreement"
+        },
+        "capabilityInvocation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Used to specify a verification method that might be used by the DID subject\nto invoke a cryptographic capability, such as the authorization \nto update the DID Document.\nhttps://www.w3.org/TR/did-core/#capability-invocation"
+        },
+        "capabilityDelegation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Used to specify a mechanism that might be used by the DID subject \nto delegate a cryptographic capability to another party.\nhttps://www.w3.org/TR/did-core/#capability-delegation"
+        }
+      },
+      "description": "DidDocument represents a dencentralised identifer."
+    },
+    "millicent.cash.issuer.QueryIssuersResponse": {
+      "type": "object",
+      "properties": {
+        "issuers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.issuer.Issuer"
+          },
+          "description": "validators contains all the queried validators."
+        },
+        "pagination": {
+          "$ref": "#/definitions/cosmos.base.query.v1beta1.PageResponse",
+          "description": "pagination defines the pagination in the response."
+        }
+      },
+      "title": "QueryIdentifersResponse is response type for the Query/Identifers RPC method"
+    },
+    "millicent.cash.verifiablecredential.QueryVerifiableCredentialsResponse": {
+      "type": "object",
+      "properties": {
+        "vcs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.VerifiableCredential"
+          },
+          "description": "validators contains all the queried validators."
+        },
+        "pagination": {
+          "$ref": "#/definitions/cosmos.base.query.v1beta1.PageResponse",
+          "description": "pagination defines the pagination in the response."
+        }
+      },
+      "title": "QueryVerifiableCredentialsResponse is response type for the Query/Identifers RPC method"
+    },
+    "millicent.cash.verifiablecredential.VerifiableCredential": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "@context is spec for verifiable credential."
+        },
+        "id": {
+          "type": "string",
+          "description": "The value of the id property MUST be a single URI. It is RECOMMENDED\nthat the URI in the id be one which, if dereferenced, results in a\ndocument containing machine-readable information about the id."
+        },
+        "type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The value of the type property MUST be, or map to (through interpretation\nof the @context property), one or more URIs. If more than one URI is\nprovided, the URIs MUST be interpreted as an unordered set."
+        },
+        "issuer": {
+          "type": "string",
+          "description": "The value of the issuer property MUST be either a URI or an object\ncontaining an id property. It is RECOMMENDED that the URI in the issuer\nor its id be one which, if dereferenced, results in a document containing\nmachine-readable information about the issuer that can be used to verify\nthe information expressed in the credential."
+        },
+        "issuance_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "A credential MUST have an issuanceDate property. The value of the issuanceDate\nproperty MUST be a string value of an [RFC3339] combined date and time string\nrepresenting the date and time the credential becomes valid, which could\nbe a date and time in the future. Note that this value represents the earliest\npoint in time at which the information associated with the credentialSubject\nproperty becomes valid."
+        },
+        "regulator_cred": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.RegulatorCredentialSubject",
+          "title": "RegulatorCredentialSubject represents a credential that identify a financial regulator"
+        },
+        "registration_cred": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.RegistrationCredentialSubject",
+          "description": "The value of license_cred represents a registration issued by a regulatory\nbody. The license is used to describe the entity that require a license."
+        },
+        "license_cred": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.LicenseCredentialSubject",
+          "title": "The value of license_cred represents a license issued by a regulatory\nbody. The license can be used to define authorized actions by the \ncredential subject"
+        },
+        "user_cred": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.UserCredentialSubject",
+          "description": "The value of user_cred represents a privacy respecting verifiable\ncredential. This is used when adding sensitive information about\na credential subject. It allows the credential subject to create\nand validate proofs about what is contained in a credential without\nrevealing the values contained in the credential otherwise known as\nselective disclosure."
+        },
+        "proof": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.Proof",
+          "description": "One or more cryptographic proofs that can be used to detect tampering\nand verify the authorship of a credential or presentation. The specific\nmethod used for an embedded proof MUST be included using the type property."
+        }
+      },
+      "title": "VerifiableCredential represents a verifiable credential"
+    },
+    "millicent.cash.issuer.MsgBurnTokenResponse": {
+      "type": "object"
+    },
+    "millicent.cash.issuer.MsgCreateIssuerResponse": {
+      "type": "object"
+    },
+    "millicent.cash.issuer.MsgIssueUserCredentialResponse": {
+      "type": "object"
+    },
+    "millicent.cash.issuer.MsgMintTokenResponse": {
+      "type": "object"
+    },
+    "millicent.cash.issuer.MsgPauseTokenResponse": {
+      "type": "object"
+    },
+    "millicent.cash.verifiablecredential.Address": {
+      "type": "object",
+      "properties": {
+        "addr_type": {
+          "type": "string"
+        },
+        "thfare": {
+          "type": "string"
+        },
+        "premise": {
+          "type": "string"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "locality": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "millicent.cash.verifiablecredential.Id": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "millicent.cash.verifiablecredential.LegalPerson": {
+      "type": "object",
+      "properties": {
+        "names": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.Name"
+          }
+        },
+        "ctry_reg": {
+          "type": "string"
+        }
+      }
+    },
+    "millicent.cash.verifiablecredential.Name": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "millicent.cash.verifiablecredential.Proof": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "proof_purpose": {
+          "type": "string"
+        },
+        "verification_method": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        }
+      },
+      "description": "The Proof message represents a cryptographic proof that the \ncredential has not been tampered with or changed without the issuersi\nknowledge. This can be used to verify the verifiable credential."
+    },
+    "millicent.cash.verifiablecredential.RegistrationCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "The value of id represents the ID of the credential_subject"
+        },
+        "address": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.Address"
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.Id"
+          }
+        },
+        "legal_persons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.LegalPerson"
+          }
+        }
+      },
+      "title": "RegistrationCredentialSubject is used to identify a business entity\nhttps://millicash/blob/main/docs/Explanation/ADR/adr-005-registration-credential.md"
+    },
+    "millicent.cash.verifiablecredential.RegulatorCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "The value of id represents the ID of the credential_subject"
+        },
+        "name": {
+          "type": "string",
+          "title": "The value of id represents the name of the credential subject"
+        },
+        "country": {
+          "type": "string",
+          "description": "The country field represents the country the credential was issued in."
+        }
+      },
+      "title": "RegulatorCredentialSubject is used to identify regulators"
+    },
+    "millicent.cash.verifiablecredential.LicenseCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "The value of id represents the ID of the credential_subject"
+        },
+        "license_type": {
+          "type": "string",
+          "description": "The license type is defined by the MICA regulation. This will\nbe used to identify different asset classes of tokens being issuedi\nby the credential_subject."
+        },
+        "country": {
+          "type": "string",
+          "description": "The country field represents the country the credential was issued in."
+        },
+        "authority": {
+          "type": "string",
+          "title": "The authority field represents a licensing authority that issued the LicenseCredential"
+        },
+        "circulation_limit": {
+          "$ref": "#/definitions/cosmos.base.v1beta1.Coin",
+          "description": "The circulation_limit represents the amount of a token \nthat can be minted by a credential_subject."
+        }
+      },
+      "description": "The LicenseCredential message makes reference to the classes of crypto assets\ndescribed in MiCA, but the license could easily be adopted as proof of\nauthority to issue various types of crypto or virtual assets. The LicenseCredential\nis used a a credential_subject in a verifiable credential."
+    },
+    "millicent.cash.verifiablecredential.Address": {
+      "type": "object",
+      "properties": {
+        "addr_type": {
+          "type": "string"
+        },
+        "thfare": {
+          "type": "string"
+        },
+        "premise": {
+          "type": "string"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "locality": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "millicent.cash.verifiablecredential.Id": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "millicent.cash.verifiablecredential.LegalPerson": {
+      "type": "object",
+      "properties": {
+        "names": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.Name"
+          }
+        },
+        "ctry_reg": {
+          "type": "string"
+        }
+      }
+    },
+    "millicent.cash.verifiablecredential.LicenseCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "The value of id represents the ID of the credential_subject"
+        },
+        "license_type": {
+          "type": "string",
+          "description": "The license type is defined by the MICA regulation. This will\nbe used to identify different asset classes of tokens being issuedi\nby the credential_subject."
+        },
+        "country": {
+          "type": "string",
+          "description": "The country field represents the country the credential was issued in."
+        },
+        "authority": {
+          "type": "string",
+          "title": "The authority field represents a licensing authority that issued the LicenseCredential"
+        },
+        "circulation_limit": {
+          "$ref": "#/definitions/cosmos.base.v1beta1.Coin",
+          "description": "The circulation_limit represents the amount of a token \nthat can be minted by a credential_subject."
+        }
+      },
+      "description": "The LicenseCredential message makes reference to the classes of crypto assets\ndescribed in MiCA, but the license could easily be adopted as proof of\nauthority to issue various types of crypto or virtual assets. The LicenseCredential\nis used a a credential_subject in a verifiable credential."
+    },
+    "millicent.cash.verifiablecredential.Name": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "millicent.cash.verifiablecredential.Proof": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "proof_purpose": {
+          "type": "string"
+        },
+        "verification_method": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        }
+      },
+      "description": "The Proof message represents a cryptographic proof that the \ncredential has not been tampered with or changed without the issuersi\nknowledge. This can be used to verify the verifiable credential."
+    },
+    "millicent.cash.verifiablecredential.QueryVerifiableCredentialResponse": {
+      "type": "object",
+      "properties": {
+        "verifiable_credential": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.VerifiableCredential",
+          "description": "verifiable_credential defines the the credential info."
+        }
+      },
+      "title": "QueryVerifiableCredentialResponse is response type for the Query/VerifiableCredential RPC method"
+    },
+    "millicent.cash.verifiablecredential.QueryVerifiableCredentialsResponse": {
+      "type": "object",
+      "properties": {
+        "vcs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.VerifiableCredential"
+          },
+          "description": "validators contains all the queried validators."
+        },
+        "pagination": {
+          "$ref": "#/definitions/cosmos.base.query.v1beta1.PageResponse",
+          "description": "pagination defines the pagination in the response."
+        }
+      },
+      "title": "QueryVerifiableCredentialsResponse is response type for the Query/Identifers RPC method"
+    },
+    "millicent.cash.verifiablecredential.RegistrationCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "The value of id represents the ID of the credential_subject"
+        },
+        "address": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.Address"
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.Id"
+          }
+        },
+        "legal_persons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.LegalPerson"
+          }
+        }
+      },
+      "title": "RegistrationCredentialSubject is used to identify a business entity\nhttps://millicash/blob/main/docs/Explanation/ADR/adr-005-registration-credential.md"
+    },
+    "millicent.cash.verifiablecredential.RegulatorCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "The value of id represents the ID of the credential_subject"
+        },
+        "name": {
+          "type": "string",
+          "title": "The value of id represents the name of the credential subject"
+        },
+        "country": {
+          "type": "string",
+          "description": "The country field represents the country the credential was issued in."
+        }
+      },
+      "title": "RegulatorCredentialSubject is used to identify regulators"
+    },
+    "millicent.cash.verifiablecredential.UserCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "root": {
+          "type": "string"
+        },
+        "is_verified": {
+          "type": "boolean"
+        }
+      },
+      "description": "UserCredentialSubject represents a privacy respecting\ncredential_subject of a verifiable credential. This\nis used as an on chain verifiable credential."
+    },
+    "millicent.cash.verifiablecredential.VerifiableCredential": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "@context is spec for verifiable credential."
+        },
+        "id": {
+          "type": "string",
+          "description": "The value of the id property MUST be a single URI. It is RECOMMENDED\nthat the URI in the id be one which, if dereferenced, results in a\ndocument containing machine-readable information about the id."
+        },
+        "type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The value of the type property MUST be, or map to (through interpretation\nof the @context property), one or more URIs. If more than one URI is\nprovided, the URIs MUST be interpreted as an unordered set."
+        },
+        "issuer": {
+          "type": "string",
+          "description": "The value of the issuer property MUST be either a URI or an object\ncontaining an id property. It is RECOMMENDED that the URI in the issuer\nor its id be one which, if dereferenced, results in a document containing\nmachine-readable information about the issuer that can be used to verify\nthe information expressed in the credential."
+        },
+        "issuance_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "A credential MUST have an issuanceDate property. The value of the issuanceDate\nproperty MUST be a string value of an [RFC3339] combined date and time string\nrepresenting the date and time the credential becomes valid, which could\nbe a date and time in the future. Note that this value represents the earliest\npoint in time at which the information associated with the credentialSubject\nproperty becomes valid."
+        },
+        "regulator_cred": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.RegulatorCredentialSubject",
+          "title": "RegulatorCredentialSubject represents a credential that identify a financial regulator"
+        },
+        "registration_cred": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.RegistrationCredentialSubject",
+          "description": "The value of license_cred represents a registration issued by a regulatory\nbody. The license is used to describe the entity that require a license."
+        },
+        "license_cred": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.LicenseCredentialSubject",
+          "title": "The value of license_cred represents a license issued by a regulatory\nbody. The license can be used to define authorized actions by the \ncredential subject"
+        },
+        "user_cred": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.UserCredentialSubject",
+          "description": "The value of user_cred represents a privacy respecting verifiable\ncredential. This is used when adding sensitive information about\na credential subject. It allows the credential subject to create\nand validate proofs about what is contained in a credential without\nrevealing the values contained in the credential otherwise known as\nselective disclosure."
+        },
+        "proof": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.Proof",
+          "description": "One or more cryptographic proofs that can be used to detect tampering\nand verify the authorship of a credential or presentation. The specific\nmethod used for an embedded proof MUST be included using the type property."
+        }
+      },
+      "title": "VerifiableCredential represents a verifiable credential"
+    },
+    "millicent.cash.verifiablecredential.UserCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "root": {
+          "type": "string"
+        },
+        "is_verified": {
+          "type": "boolean"
+        }
+      },
+      "description": "UserCredentialSubject represents a privacy respecting\ncredential_subject of a verifiable credential. This\nis used as an on chain verifiable credential."
+    },
+    "cosmos.base.v1beta1.Coin": {
+      "type": "object",
+      "properties": {
+        "denom": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        }
+      },
+      "description": "Coin defines a token with a denomination and an amount.\n\nNOTE: The amount field is an Int which implements the custom method\nsignatures required by gogoproto."
+    },
+    "millicent.cash.verifiablecredential.RegistrationCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "The value of id represents the ID of the credential_subject"
+        },
+        "address": {
+          "$ref": "#/definitions/millicent.cash.verifiablecredential.Address"
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.Id"
+          }
+        },
+        "legal_persons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.verifiablecredential.LegalPerson"
+          }
+        }
+      },
+      "title": "RegistrationCredentialSubject is used to identify a business entity\nhttps://millicash/blob/main/docs/Explanation/ADR/adr-005-registration-credential.md"
+    },
+    "millicent.cash.verifiablecredential.RegulatorCredentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "The value of id represents the ID of the credential_subject"
+        },
+        "name": {
+          "type": "string",
+          "title": "The value of id represents the name of the credential subject"
+        },
+        "country": {
+          "type": "string",
+          "description": "The country field represents the country the credential was issued in."
+        }
+      },
+      "title": "RegulatorCredentialSubject is used to identify regulators"
+    },
+    "millicent.cash.issuer.Issuer": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "fee": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "issuer_did": {
+          "type": "string"
+        },
+        "paused": {
+          "type": "boolean"
+        }
+      },
+      "title": "Issuer represents an e-money token issuer"
+    },
+    "millicent.cash.did.DidMetadata": {
+      "type": "object",
+      "properties": {
+        "versionId": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deactivated": {
+          "type": "boolean"
+        }
+      },
+      "title": "DidMetadata defines metadata associated to a did document such as \nthe status of the DID document"
+    },
+    "millicent.cash.did.QueryDidDocumentResponse": {
+      "type": "object",
+      "properties": {
+        "didDocument": {
+          "$ref": "#/definitions/millicent.cash.did.DidDocument",
+          "description": "validators contains all the queried validators."
+        },
+        "didMetadata": {
+          "$ref": "#/definitions/millicent.cash.did.DidMetadata"
+        }
+      },
+      "title": "QueryDidDocumentsResponse is response type for the Query/DidDocuments RPC method"
+    },
+    "millicent.cash.did.QueryDidDocumentsResponse": {
+      "type": "object",
+      "properties": {
+        "didDocuments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/millicent.cash.did.DidDocument"
+          },
+          "description": "validators contains all the queried validators."
+        },
+        "pagination": {
+          "$ref": "#/definitions/cosmos.base.query.v1beta1.PageResponse",
+          "description": "pagination defines the pagination in the response."
+        }
+      },
+      "title": "QueryDidDocumentsResponse is response type for the Query/DidDocuments RPC method"
+    },
+    "millicent.cash.did.Service": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "serviceEndpoint": {
+          "type": "string"
+        }
+      },
+      "title": "Service defines how to find data associated with a identifer"
+    },
+    "millicent.cash.did.VerificationMethod": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "controller": {
+          "type": "string"
+        },
+        "blockchainAccountID": {
+          "type": "string"
+        },
+        "publicKeyHex": {
+          "type": "string"
+        },
+        "publicKeyMultibase": {
+          "type": "string"
+        }
+      },
+      "title": "A DID document can express verification methods, \nsuch as cryptographic public keys, which can be used \nto authenticate or authorize interactions \nwith the DID subject or associated parties. \nhttps://www.w3.org/TR/did-core/#verification-methods"
+    },
+    "cosmos.base.query.v1beta1.PageRequest": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "format": "byte",
+          "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64",
+          "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+        },
+        "limit": {
+          "type": "string",
+          "format": "uint64",
+          "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+        },
+        "count_total": {
+          "type": "boolean",
+          "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+        },
+        "reverse": {
+          "type": "boolean",
+          "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+        }
+      },
+      "description": "message SomeRequest {\n         Foo some_parameter = 1;\n         PageRequest pagination = 2;\n }",
+      "title": "PageRequest is to be embedded in gRPC request messages for efficient\npagination. Ex:"
+    },
+    "cosmos.base.query.v1beta1.PageResponse": {
+      "type": "object",
+      "properties": {
+        "next_key": {
+          "type": "string",
+          "format": "byte",
+          "title": "next_key is the key to be passed to PageRequest.key to\nquery the next page most efficiently"
+        },
+        "total": {
+          "type": "string",
+          "format": "uint64",
+          "title": "total is total number of results available if PageRequest.count_total\nwas set, its value is undefined otherwise"
+        }
+      },
+      "description": "PageResponse is to be embedded in gRPC response messages where the\ncorresponding request message has used PageRequest.\n\n message SomeResponse {\n         repeated Bar results = 1;\n         PageResponse page = 2;\n }"
+    },
+    "google.protobuf.Any": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "grpc.gateway.runtime.Error": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/google.protobuf.Any"
+          }
+        }
+      }
+    }
+  }
+}

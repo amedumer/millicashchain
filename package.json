@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "protoc": "^1.0.4",
+    "ts-proto": "^1.129.0"
+  }
+}
