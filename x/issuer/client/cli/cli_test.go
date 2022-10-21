@@ -8,14 +8,14 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	"github.com/millicent/cash/x/issuer/client/cli"
-	"github.com/millicent/cash/x/issuer/types"
+	"github.com/millicent/millicash/x/issuer/client/cli"
+	"github.com/millicent/millicash/x/issuer/types"
 
 	clitestutil "github.com/cosmos/cosmos-sdk/testutil/cli"
 	"github.com/cosmos/cosmos-sdk/testutil/network"
 
-	"github.com/millicent/cash/app"
-	"github.com/millicent/cash/app/params"
+	"github.com/millicent/millicash/app"
+	"github.com/millicent/millicash/app/params"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	servertypes "github.com/cosmos/cosmos-sdk/server/types"

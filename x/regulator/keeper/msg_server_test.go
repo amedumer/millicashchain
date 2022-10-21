@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	didtypes "github.com/millicent/cash/x/did/types"
-	"github.com/millicent/cash/x/regulator/types"
-	vctypes "github.com/millicent/cash/x/verifiable-credential/types"
+	didtypes "github.com/millicent/millicash/x/did/types"
+	"github.com/millicent/millicash/x/regulator/types"
+	vctypes "github.com/millicent/millicash/x/verifiable-credential/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

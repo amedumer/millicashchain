@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/millicent/cash/x/regulator/types"
+	"github.com/millicent/millicash/x/regulator/types"
 )
 
 var _ types.QueryServer = Keeper{}

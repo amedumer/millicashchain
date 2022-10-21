@@ -6,9 +6,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	didtypes "github.com/millicent/cash/x/did/types"
-	"github.com/millicent/cash/x/issuer/types"
-	vctypes "github.com/millicent/cash/x/verifiable-credential/types"
+	didtypes "github.com/millicent/millicash/x/did/types"
+	"github.com/millicent/millicash/x/issuer/types"
+	vctypes "github.com/millicent/millicash/x/verifiable-credential/types"
 )
 
 type msgServer struct {

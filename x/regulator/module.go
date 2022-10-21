@@ -16,9 +16,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/millicent/cash/x/regulator/client/cli"
-	"github.com/millicent/cash/x/regulator/keeper"
-	"github.com/millicent/cash/x/regulator/types"
+	"github.com/millicent/millicash/x/regulator/client/cli"
+	"github.com/millicent/millicash/x/regulator/keeper"
+	"github.com/millicent/millicash/x/regulator/types"
 )
 
 var (

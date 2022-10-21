@@ -3,7 +3,7 @@ package keeper
 import (
 	"testing"
 
-	"github.com/millicent/cash/x/regulator/types"
+	"github.com/millicent/millicash/x/regulator/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	cryptocodec "github.com/cosmos/cosmos-sdk/crypto/codec"
@@ -14,10 +14,10 @@ import (
 
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	didkeeper "github.com/millicent/cash/x/did/keeper"
-	didtypes "github.com/millicent/cash/x/did/types"
-	vckeeper "github.com/millicent/cash/x/verifiable-credential/keeper"
-	vctypes "github.com/millicent/cash/x/verifiable-credential/types"
+	didkeeper "github.com/millicent/millicash/x/did/keeper"
+	didtypes "github.com/millicent/millicash/x/did/types"
+	vckeeper "github.com/millicent/millicash/x/verifiable-credential/keeper"
+	vctypes "github.com/millicent/millicash/x/verifiable-credential/types"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	ct "github.com/cosmos/cosmos-sdk/codec/types"

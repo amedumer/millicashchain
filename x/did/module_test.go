@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 	abcitypes "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/millicent/cash/app"
+	"github.com/millicent/millicash/app"
 
 	"github.com/tendermint/tendermint/libs/log"
 

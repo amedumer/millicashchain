@@ -8,7 +8,7 @@ import (
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	didtypes "github.com/millicent/cash/x/did/types"
+	didtypes "github.com/millicent/millicash/x/did/types"
 )
 
 // Defines the accepted credential types

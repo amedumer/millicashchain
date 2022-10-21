@@ -19,7 +19,7 @@ import (
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 	"github.com/spf13/cobra"
 
-	regulatortypes "github.com/millicent/cash/x/regulator/types"
+	regulatortypes "github.com/millicent/millicash/x/regulator/types"
 )
 
 const (

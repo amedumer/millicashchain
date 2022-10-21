@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/millicent/cash/x/verifiable-credential/types"
+	"github.com/millicent/millicash/x/verifiable-credential/types"
 )
 
 var _ types.QueryServer = Keeper{}

@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/millicent/cash/x/did/types"
+	"github.com/millicent/millicash/x/did/types"
 )
 
 // UnmarshalFn is a generic function to unmarshal bytes

@@ -7,9 +7,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	"github.com/stretchr/testify/suite"
 
-	didkeeper "github.com/millicent/cash/x/did/keeper"
-	didtypes "github.com/millicent/cash/x/did/types"
-	"github.com/millicent/cash/x/verifiable-credential/types"
+	didkeeper "github.com/millicent/millicash/x/did/keeper"
+	didtypes "github.com/millicent/millicash/x/did/types"
+	"github.com/millicent/millicash/x/verifiable-credential/types"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/codec"

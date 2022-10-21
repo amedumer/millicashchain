@@ -1,4 +1,4 @@
-module github.com/millicent/cash
+module github.com/millicent/millicash
 
 go 1.17
 

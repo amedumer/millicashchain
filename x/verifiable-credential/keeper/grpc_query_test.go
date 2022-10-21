@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/millicent/cash/x/verifiable-credential/types"
+	"github.com/millicent/millicash/x/verifiable-credential/types"
 )
 
 func (suite *KeeperTestSuite) TestGRPCQueryVerifiableCredentials() {

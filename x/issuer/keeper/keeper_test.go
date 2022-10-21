@@ -9,7 +9,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/millicent/cash/x/issuer/types"
+	"github.com/millicent/millicash/x/issuer/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	ct "github.com/cosmos/cosmos-sdk/codec/types"
@@ -19,12 +19,12 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	didkeeper "github.com/millicent/cash/x/did/keeper"
-	didtypes "github.com/millicent/cash/x/did/types"
-	regkeeper "github.com/millicent/cash/x/regulator/keeper"
-	regtypes "github.com/millicent/cash/x/regulator/types"
-	vckeeper "github.com/millicent/cash/x/verifiable-credential/keeper"
-	vctypes "github.com/millicent/cash/x/verifiable-credential/types"
+	didkeeper "github.com/millicent/millicash/x/did/keeper"
+	didtypes "github.com/millicent/millicash/x/did/types"
+	regkeeper "github.com/millicent/millicash/x/regulator/keeper"
+	regtypes "github.com/millicent/millicash/x/regulator/types"
+	vckeeper "github.com/millicent/millicash/x/verifiable-credential/keeper"
+	vctypes "github.com/millicent/millicash/x/verifiable-credential/types"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	server "github.com/cosmos/cosmos-sdk/server"

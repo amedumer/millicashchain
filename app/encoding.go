@@ -3,7 +3,7 @@ package app
 import (
 	"github.com/cosmos/cosmos-sdk/std"
 
-	"github.com/millicent/cash/app/params"
+	"github.com/millicent/millicash/app/params"
 )
 
 // MakeEncodingConfig creates an EncodingConfig for testing

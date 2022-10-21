@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/cobra"
 
 	// sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/millicent/cash/x/regulator/types"
+	"github.com/millicent/millicash/x/regulator/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

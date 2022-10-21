@@ -90,20 +90,20 @@ import ( // this line is used by starport scaffolding # stargate/app/moduleImpor
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	appparams "github.com/millicent/cash/app/params"
+	appparams "github.com/millicent/millicash/app/params"
 
-	"github.com/millicent/cash/x/did"
-	didkeeper "github.com/millicent/cash/x/did/keeper"
-	didtypes "github.com/millicent/cash/x/did/types"
-	"github.com/millicent/cash/x/issuer"
-	issuerkeeper "github.com/millicent/cash/x/issuer/keeper"
-	issuertypes "github.com/millicent/cash/x/issuer/types"
-	"github.com/millicent/cash/x/regulator"
-	regulatorkeeper "github.com/millicent/cash/x/regulator/keeper"
-	regulatortypes "github.com/millicent/cash/x/regulator/types"
-	vcs "github.com/millicent/cash/x/verifiable-credential"
-	vcskeeper "github.com/millicent/cash/x/verifiable-credential/keeper"
-	vcstypes "github.com/millicent/cash/x/verifiable-credential/types"
+	"github.com/millicent/millicash/x/did"
+	didkeeper "github.com/millicent/millicash/x/did/keeper"
+	didtypes "github.com/millicent/millicash/x/did/types"
+	"github.com/millicent/millicash/x/issuer"
+	issuerkeeper "github.com/millicent/millicash/x/issuer/keeper"
+	issuertypes "github.com/millicent/millicash/x/issuer/types"
+	"github.com/millicent/millicash/x/regulator"
+	regulatorkeeper "github.com/millicent/millicash/x/regulator/keeper"
+	regulatortypes "github.com/millicent/millicash/x/regulator/types"
+	vcs "github.com/millicent/millicash/x/verifiable-credential"
+	vcskeeper "github.com/millicent/millicash/x/verifiable-credential/keeper"
+	vcstypes "github.com/millicent/millicash/x/verifiable-credential/types"
 )
 
 var (

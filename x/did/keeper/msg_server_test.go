@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/millicent/cash/x/did/types"
+	"github.com/millicent/millicash/x/did/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"

@@ -3,8 +3,8 @@ package regulator
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/millicent/cash/x/regulator/keeper"
-	"github.com/millicent/cash/x/regulator/types"
+	"github.com/millicent/millicash/x/regulator/keeper"
+	"github.com/millicent/millicash/x/regulator/types"
 )
 
 // DefaultGenesis returns the default issuer genesis state

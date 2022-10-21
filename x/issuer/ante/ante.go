@@ -8,11 +8,11 @@ import (
 	accountKeeper "github.com/cosmos/cosmos-sdk/x/auth/ante"
 	bank "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	didkeeper "github.com/millicent/cash/x/did/keeper"
-	"github.com/millicent/cash/x/issuer/keeper"
-	"github.com/millicent/cash/x/issuer/types"
-	vcskeeper "github.com/millicent/cash/x/verifiable-credential/keeper"
-	vctypes "github.com/millicent/cash/x/verifiable-credential/types"
+	didkeeper "github.com/millicent/millicash/x/did/keeper"
+	"github.com/millicent/millicash/x/issuer/keeper"
+	"github.com/millicent/millicash/x/issuer/types"
+	vcskeeper "github.com/millicent/millicash/x/verifiable-credential/keeper"
+	vctypes "github.com/millicent/millicash/x/verifiable-credential/types"
 )
 
 // CheckUserCredentialsDecorator checks the users has a UserCredential in a preprocessing hook

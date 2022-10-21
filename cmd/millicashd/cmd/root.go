@@ -32,8 +32,8 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/millicent/cash/app"
-	"github.com/millicent/cash/app/params"
+	"github.com/millicent/millicash/app"
+	"github.com/millicent/millicash/app/params"
 )
 
 // ChainID the chain did

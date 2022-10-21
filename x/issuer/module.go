@@ -14,9 +14,9 @@ import ( // this line is used by starport scaffolding # 1
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/millicent/cash/x/issuer/client/cli"
-	"github.com/millicent/cash/x/issuer/keeper"
-	"github.com/millicent/cash/x/issuer/types"
+	"github.com/millicent/millicash/x/issuer/client/cli"
+	"github.com/millicent/millicash/x/issuer/keeper"
+	"github.com/millicent/millicash/x/issuer/types"
 )
 
 var (

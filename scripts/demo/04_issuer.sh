@@ -4,86 +4,86 @@
 ### Creating Issuers
 
 echo "Creating issuer for bank: Barclays"
-cashd tx issuer create-issuer \
- did:millicent:net:cash:barclays did:millicent:net:cash:barclays-gbplicense-credential sGBP 100 \
+millicashd tx issuer create-issuer \
+ did:millicent:net:millicash:barclays did:millicent:net:millicash:barclays-gbplicense-credential sGBP 100 \
  --from barclays \
- --chain-id cash -y --broadcast-mode block
+ --chain-id millicash -y --broadcast-mode block
 
  echo "Creating issuer for bank: lloyds"
-cashd tx issuer create-issuer \
- did:millicent:net:cash:lloyds did:millicent:net:cash:lloyds-gbplicense-credential sGBP 100 \
+millicashd tx issuer create-issuer \
+ did:millicent:net:millicash:lloyds did:millicent:net:millicash:lloyds-gbplicense-credential sGBP 100 \
  --from lloyds \
- --chain-id cash -y --broadcast-mode block
+ --chain-id millicash -y --broadcast-mode block
 
   echo "Creating issuer for bank: HSBC"
-cashd tx issuer create-issuer \
- did:millicent:net:cash:hsbc did:millicent:net:cash:hsbc-gbplicense-credential sGBP 100 \
+millicashd tx issuer create-issuer \
+ did:millicent:net:millicash:hsbc did:millicent:net:millicash:hsbc-gbplicense-credential sGBP 100 \
  --from hsbc \
- --chain-id cash -y --broadcast-mode block
+ --chain-id millicash -y --broadcast-mode block
 
    echo "Creating issuer for bank: JPMorgan"
-cashd tx issuer create-issuer \
- did:millicent:net:cash:jpmorgan did:millicent:net:cash:jpmorgan-dollarlicense-credential sUSD 100 \
+millicashd tx issuer create-issuer \
+ did:millicent:net:millicash:jpmorgan did:millicent:net:millicash:jpmorgan-dollarlicense-credential sUSD 100 \
  --from jpmorgan \
- --chain-id cash -y --broadcast-mode block
+ --chain-id millicash -y --broadcast-mode block
 
 
 ### Self Issuing KYCs to issuers
 
 echo "Self-issuing proof of kyc to itself: Barclays"
-cashd tx issuer issue-user-credential \
-	did:millicent:net:cash:barclays did:millicent:net:cash:barclays secret 1000 1000 1000  \
-	--credential-id did:millicent:net:cash:barclays-pokyc \
+millicashd tx issuer issue-user-credential \
+	did:millicent:net:millicash:barclays did:millicent:net:millicash:barclays secret 1000 1000 1000  \
+	--credential-id did:millicent:net:millicash:barclays-pokyc \
 	--from barclays \
-	--chain-id cash -y --broadcast-mode block
+	--chain-id millicash -y --broadcast-mode block
 
 echo "Self-issuing proof of kyc to itself: Lloyds"
-cashd tx issuer issue-user-credential \
-	did:millicent:net:cash:lloyds did:millicent:net:cash:lloyds secret 1000 1000 1000  \
-	--credential-id did:millicent:net:cash:lloyds-pokyc \
+millicashd tx issuer issue-user-credential \
+	did:millicent:net:millicash:lloyds did:millicent:net:millicash:lloyds secret 1000 1000 1000  \
+	--credential-id did:millicent:net:millicash:lloyds-pokyc \
 	--from lloyds \
-	--chain-id cash -y --broadcast-mode block
+	--chain-id millicash -y --broadcast-mode block
 
 echo "Self-issuing proof of kyc to itself: HSBC"
-cashd tx issuer issue-user-credential \
-	did:millicent:net:cash:hsbc did:millicent:net:cash:hsbc secret 1000 1000 1000  \
-	--credential-id did:millicent:net:cash:hsbc-pokyc \
+millicashd tx issuer issue-user-credential \
+	did:millicent:net:millicash:hsbc did:millicent:net:millicash:hsbc secret 1000 1000 1000  \
+	--credential-id did:millicent:net:millicash:hsbc-pokyc \
 	--from hsbc \
-	--chain-id cash -y --broadcast-mode block
+	--chain-id millicash -y --broadcast-mode block
 
 echo "Self-issuing proof of kyc to itself: JPMorgan"
-cashd tx issuer issue-user-credential \
-	did:millicent:net:cash:jpmorgan did:millicent:net:cash:jpmorgan secret 1000 1000 1000  \
-	--credential-id did:millicent:net:cash:jpmorgan-pokyc \
+millicashd tx issuer issue-user-credential \
+	did:millicent:net:millicash:jpmorgan did:millicent:net:millicash:jpmorgan secret 1000 1000 1000  \
+	--credential-id did:millicent:net:millicash:jpmorgan-pokyc \
 	--from jpmorgan \
-	--chain-id cash -y --broadcast-mode block
+	--chain-id millicash -y --broadcast-mode block
 
 
 ### Mint Tokens
 
  echo "Mint tokens for Barclays"
-cashd tx issuer mint-token \
- did:millicent:net:cash:barclays did:millicent:net:cash:barclays-gbplicense-credential 1000sGBP \
+millicashd tx issuer mint-token \
+ did:millicent:net:millicash:barclays did:millicent:net:millicash:barclays-gbplicense-credential 1000sGBP \
  --from barclays \
- --chain-id cash -y --broadcast-mode block
+ --chain-id millicash -y --broadcast-mode block
 
   echo "Mint tokens for Lloyds"
-cashd tx issuer mint-token \
- did:millicent:net:cash:lloyds did:millicent:net:cash:lloyds-gbplicense-credential 1000sGBP \
+millicashd tx issuer mint-token \
+ did:millicent:net:millicash:lloyds did:millicent:net:millicash:lloyds-gbplicense-credential 1000sGBP \
  --from lloyds \
- --chain-id cash -y --broadcast-mode block
+ --chain-id millicash -y --broadcast-mode block
 
  echo "Mint tokens for HSBC"
-cashd tx issuer mint-token \
- did:millicent:net:cash:hsbc did:millicent:net:cash:hsbc-gbplicense-credential 1000sGBP \
+millicashd tx issuer mint-token \
+ did:millicent:net:millicash:hsbc did:millicent:net:millicash:hsbc-gbplicense-credential 1000sGBP \
  --from hsbc \
- --chain-id cash -y --broadcast-mode block
+ --chain-id millicash -y --broadcast-mode block
 
   echo "Mint tokens for JPMorgan"
-cashd tx issuer mint-token \
- did:millicent:net:cash:jpmorgan did:millicent:net:cash:jpmorgan-dollarlicense-credential 1000sUSD \
+millicashd tx issuer mint-token \
+ did:millicent:net:millicash:jpmorgan did:millicent:net:millicash:jpmorgan-dollarlicense-credential 1000sUSD \
  --from jpmorgan \
- --chain-id cash -y --broadcast-mode block
+ --chain-id millicash -y --broadcast-mode block
 
 echo "Check minted tokens"
- cashd query bank total --output json | jq
+ millicashd query bank total --output json | jq

@@ -10,8 +10,8 @@ import (
 	bank "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/millicent/cash/x/regulator/types"
-	vctypes "github.com/millicent/cash/x/verifiable-credential/types"
+	"github.com/millicent/millicash/x/regulator/types"
+	vctypes "github.com/millicent/millicash/x/verifiable-credential/types"
 )
 
 type (

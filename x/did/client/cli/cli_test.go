@@ -13,16 +13,16 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	"github.com/millicent/cash/x/did/client/cli"
-	"github.com/millicent/cash/x/did/types"
+	"github.com/millicent/millicash/x/did/client/cli"
+	"github.com/millicent/millicash/x/did/types"
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	clitestutil "github.com/cosmos/cosmos-sdk/testutil/cli"
 	"github.com/cosmos/cosmos-sdk/testutil/network"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/millicent/cash/app"
-	"github.com/millicent/cash/app/params"
+	"github.com/millicent/millicash/app"
+	"github.com/millicent/millicash/app/params"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	servertypes "github.com/cosmos/cosmos-sdk/server/types"

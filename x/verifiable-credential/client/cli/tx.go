@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	"github.com/spf13/cobra"
 
-	"github.com/millicent/cash/x/verifiable-credential/types"
+	"github.com/millicent/millicash/x/verifiable-credential/types"
 )
 
 // GetTxCmd returns the transaction commands for this module

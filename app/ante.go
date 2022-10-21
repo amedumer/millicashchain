@@ -6,10 +6,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/signing"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	didkeeper "github.com/millicent/cash/x/did/keeper"
-	issuerante "github.com/millicent/cash/x/issuer/ante"
-	issuerkeeper "github.com/millicent/cash/x/issuer/keeper"
-	vcskeeper "github.com/millicent/cash/x/verifiable-credential/keeper"
+	didkeeper "github.com/millicent/millicash/x/did/keeper"
+	issuerante "github.com/millicent/millicash/x/issuer/ante"
+	issuerkeeper "github.com/millicent/millicash/x/issuer/keeper"
+	vcskeeper "github.com/millicent/millicash/x/verifiable-credential/keeper"
 )
 
 // NewAnteHandler returns an AnteHandler that checks and increments sequence

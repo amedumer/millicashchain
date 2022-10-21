@@ -5,28 +5,28 @@ echo "Starting money mule sceneario"
 # sets up an account with a verifiable credential
 # takes 1 arg the name of the account to set up
 set_up_account() {
-	echo 'y' | cashd keys add aml$2$1 --keyring-backend test
+	echo 'y' | millicashd keys add aml$2$1 --keyring-backend test
 
 	### send native tokens so user can create did
-	cashd tx bank send \
-		$(cashd keys show validator -a) $(cashd keys show aml$2$1 --keyring-backend test -a) 100000stake --from validator --chain-id cash -y
+	millicashd tx bank send \
+		$(millicashd keys show validator -a) $(millicashd keys show aml$2$1 --keyring-backend test -a) 100000stake --from validator --chain-id millicash -y
 
 	### create did
-        cashd tx did create-did --from aml$2$1 --keyring-backend test --chain-id cash -y
+        millicashd tx did create-did --from aml$2$1 --keyring-backend test --chain-id millicash -y
 
 	### issue credential
-        cashd tx verifiablecredential create-verifiable-credential \
-		did:cash:$(cashd keys show aml$2$1 --keyring-backend test -a) $2-cred-$1 secret$1 name address dob nationalId phoneNumber --from validator --chain-id cash -y
+        millicashd tx verifiablecredential create-verifiable-credential \
+		did:millicash:$(millicashd keys show aml$2$1 --keyring-backend test -a) $2-cred-$1 secret$1 name address dob nationalId phoneNumber --from validator --chain-id millicash -y
 
 	### attach credential to did document
-        cashd tx did add-service \
-		did:cash:$(cashd keys show aml$2$1 --keyring-backend test -a) $2-cred-$1 UserCredential cash:$2-cred-$1 \
-		--from aml$2$1 --keyring-backend test --chain-id cash -y
+        millicashd tx did add-service \
+		did:millicash:$(millicashd keys show aml$2$1 --keyring-backend test -a) $2-cred-$1 UserCredential millicash:$2-cred-$1 \
+		--from aml$2$1 --keyring-backend test --chain-id millicash -y
 
 
 	echo "Querying data for aml$2$1"
-	cashd query did did did:cash:$(cashd keys show aml$2$1 --keyring-backend test -a) --output json | jq
-	cashd query verifiablecredential verifiable-credential $2-cred-$1 --output json | jq
+	millicashd query did did did:millicash:$(millicashd keys show aml$2$1 --keyring-backend test -a) --output json | jq
+	millicashd query verifiablecredential verifiable-credential $2-cred-$1 --output json | jq
 
 	sleep 1
 }
@@ -55,17 +55,17 @@ do
 	set_up_account $i origin
 
 	### send token to fraud accounts
-	cashd tx bank send \
-		$(cashd keys show validator -a) $(cashd keys show amlorigin$i --keyring-backend test -a) 10000seuro --from validator --chain-id cash -y
+	millicashd tx bank send \
+		$(millicashd keys show validator -a) $(millicashd keys show amlorigin$i --keyring-backend test -a) 10000seuro --from validator --chain-id millicash -y
 
 	for j in {0..9} 
 	do
 		### send token from fraud accounts to mules
-		cashd tx bank send \
-			$(cashd keys show amlorigin$i --keyring-backend test -a) $(cashd keys show amlmule$i$j --keyring-backend test -a) 100seuro --from amlorigin$i --chain-id cash -y
+		millicashd tx bank send \
+			$(millicashd keys show amlorigin$i --keyring-backend test -a) $(millicashd keys show amlmule$i$j --keyring-backend test -a) 100seuro --from amlorigin$i --chain-id millicash -y
 	
 		echo "Querying data for amlmule$i$j"
-		cashd query bank balances $(cashd keys show amlmule$i$j --keyring-backend test -a) --output json | jq
+		millicashd query bank balances $(millicashd keys show amlmule$i$j --keyring-backend test -a) --output json | jq
 	done
 done
 
@@ -80,13 +80,13 @@ do
 	for j in {0..9} 
 	do
 		### send token from mule accounts to dest
-		cashd tx bank send \
-			 $(cashd keys show amlmule${i}${j} --keyring-backend test -a) $(cashd keys show amldest$R --keyring-backend test -a) 80seuro \
-			 --from $(cashd keys show amlmule${i}${j} --keyring-backend test -a) --chain-id cash -y &
+		millicashd tx bank send \
+			 $(millicashd keys show amlmule${i}${j} --keyring-backend test -a) $(millicashd keys show amldest$R --keyring-backend test -a) 80seuro \
+			 --from $(millicashd keys show amlmule${i}${j} --keyring-backend test -a) --chain-id millicash -y &
 	done
 	wait
 
 	echo "Querying data for amldest$R"
-	cashd query bank balances $(cashd keys show amldest$R --keyring-backend test -a) --output json | jq
+	millicashd query bank balances $(millicashd keys show amldest$R --keyring-backend test -a) --output json | jq
 done
 

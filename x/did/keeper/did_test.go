@@ -3,7 +3,7 @@ package keeper
 import (
 	"fmt"
 
-	"github.com/millicent/cash/x/did/types"
+	"github.com/millicent/millicash/x/did/types"
 )
 
 func (suite *KeeperTestSuite) TestDidDocumentKeeperSetAndGet() {

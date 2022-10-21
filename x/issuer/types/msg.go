@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	didtypes "github.com/millicent/cash/x/did/types"
-	vctypes "github.com/millicent/cash/x/verifiable-credential/types"
+	didtypes "github.com/millicent/millicash/x/did/types"
+	vctypes "github.com/millicent/millicash/x/verifiable-credential/types"
 )
 
 // msg types

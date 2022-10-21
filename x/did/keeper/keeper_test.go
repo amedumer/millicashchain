@@ -7,7 +7,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/millicent/cash/x/did/types"
+	"github.com/millicent/millicash/x/did/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	ct "github.com/cosmos/cosmos-sdk/codec/types"

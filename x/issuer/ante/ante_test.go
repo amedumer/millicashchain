@@ -32,12 +32,12 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	didkeeper "github.com/millicent/cash/x/did/keeper"
-	didtypes "github.com/millicent/cash/x/did/types"
-	issuerkeeper "github.com/millicent/cash/x/issuer/keeper"
-	issuertypes "github.com/millicent/cash/x/issuer/types"
-	vckeeper "github.com/millicent/cash/x/verifiable-credential/keeper"
-	vctypes "github.com/millicent/cash/x/verifiable-credential/types"
+	didkeeper "github.com/millicent/millicash/x/did/keeper"
+	didtypes "github.com/millicent/millicash/x/did/types"
+	issuerkeeper "github.com/millicent/millicash/x/issuer/keeper"
+	issuertypes "github.com/millicent/millicash/x/issuer/types"
+	vckeeper "github.com/millicent/millicash/x/verifiable-credential/keeper"
+	vctypes "github.com/millicent/millicash/x/verifiable-credential/types"
 )
 
 // TestAccount represents an account used in the tests in x/auth/ante.
