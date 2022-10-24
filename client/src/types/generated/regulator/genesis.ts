@@ -1,8 +1,8 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.regulator';
+export const protobufPackage = "millicent.cash.regulator";
 
 /** GenesisState defines the regulator module's genesis state. */
 export interface GenesisState {
@@ -190,7 +190,7 @@ export const Regulators = {
 };
 
 function createBaseRegulators_DidsEntry(): Regulators_DidsEntry {
-  return { key: '', value: '' };
+  return { key: "", value: "" };
 }
 
 export const Regulators_DidsEntry = {
@@ -198,10 +198,10 @@ export const Regulators_DidsEntry = {
     message: Regulators_DidsEntry,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.key !== '') {
+    if (message.key !== "") {
       writer.uint32(10).string(message.key);
     }
-    if (message.value !== '') {
+    if (message.value !== "") {
       writer.uint32(18).string(message.value);
     }
     return writer;
@@ -233,8 +233,8 @@ export const Regulators_DidsEntry = {
 
   fromJSON(object: any): Regulators_DidsEntry {
     return {
-      key: isSet(object.key) ? String(object.key) : '',
-      value: isSet(object.value) ? String(object.value) : '',
+      key: isSet(object.key) ? String(object.key) : "",
+      value: isSet(object.value) ? String(object.value) : "",
     };
   },
 
@@ -249,8 +249,8 @@ export const Regulators_DidsEntry = {
     object: I
   ): Regulators_DidsEntry {
     const message = createBaseRegulators_DidsEntry();
-    message.key = object.key ?? '';
-    message.value = object.value ?? '';
+    message.key = object.key ?? "";
+    message.value = object.value ?? "";
     return message;
   },
 };
@@ -289,7 +289,7 @@ if (_m0.util.Long !== Long) {
 }
 
 function isObject(value: any): boolean {
-  return typeof value === 'object' && value !== null;
+  return typeof value === "object" && value !== null;
 }
 
 function isSet(value: any): boolean {

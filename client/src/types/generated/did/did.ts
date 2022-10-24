@@ -1,9 +1,9 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
-import { Timestamp } from '../google/protobuf/timestamp';
+import { Timestamp } from "../google/protobuf/timestamp";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.did';
+export const protobufPackage = "millicent.cash.did";
 
 /** DidDocument represents a dencentralised identifer. */
 export interface DidDocument {
@@ -98,7 +98,7 @@ export interface DidMetadata {
 function createBaseDidDocument(): DidDocument {
   return {
     context: [],
-    id: '',
+    id: "",
     controller: [],
     verificationMethod: [],
     service: [],
@@ -118,7 +118,7 @@ export const DidDocument = {
     for (const v of message.context) {
       writer.uint32(10).string(v!);
     }
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(18).string(message.id);
     }
     for (const v of message.controller) {
@@ -200,7 +200,7 @@ export const DidDocument = {
       context: Array.isArray(object?.context)
         ? object.context.map((e: any) => String(e))
         : [],
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       controller: Array.isArray(object?.controller)
         ? object.controller.map((e: any) => String(e))
         : [],
@@ -290,7 +290,7 @@ export const DidDocument = {
   ): DidDocument {
     const message = createBaseDidDocument();
     message.context = object.context?.map((e) => e) || [];
-    message.id = object.id ?? '';
+    message.id = object.id ?? "";
     message.controller = object.controller?.map((e) => e) || [];
     message.verificationMethod =
       object.verificationMethod?.map((e) =>
@@ -310,9 +310,9 @@ export const DidDocument = {
 
 function createBaseVerificationMethod(): VerificationMethod {
   return {
-    id: '',
-    type: '',
-    controller: '',
+    id: "",
+    type: "",
+    controller: "",
     blockchainAccountID: undefined,
     publicKeyHex: undefined,
     publicKeyMultibase: undefined,
@@ -324,13 +324,13 @@ export const VerificationMethod = {
     message: VerificationMethod,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.type !== '') {
+    if (message.type !== "") {
       writer.uint32(18).string(message.type);
     }
-    if (message.controller !== '') {
+    if (message.controller !== "") {
       writer.uint32(26).string(message.controller);
     }
     if (message.blockchainAccountID !== undefined) {
@@ -380,9 +380,9 @@ export const VerificationMethod = {
 
   fromJSON(object: any): VerificationMethod {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      type: isSet(object.type) ? String(object.type) : '',
-      controller: isSet(object.controller) ? String(object.controller) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      type: isSet(object.type) ? String(object.type) : "",
+      controller: isSet(object.controller) ? String(object.controller) : "",
       blockchainAccountID: isSet(object.blockchainAccountID)
         ? String(object.blockchainAccountID)
         : undefined,
@@ -413,9 +413,9 @@ export const VerificationMethod = {
     object: I
   ): VerificationMethod {
     const message = createBaseVerificationMethod();
-    message.id = object.id ?? '';
-    message.type = object.type ?? '';
-    message.controller = object.controller ?? '';
+    message.id = object.id ?? "";
+    message.type = object.type ?? "";
+    message.controller = object.controller ?? "";
     message.blockchainAccountID = object.blockchainAccountID ?? undefined;
     message.publicKeyHex = object.publicKeyHex ?? undefined;
     message.publicKeyMultibase = object.publicKeyMultibase ?? undefined;
@@ -424,7 +424,7 @@ export const VerificationMethod = {
 };
 
 function createBaseService(): Service {
-  return { id: '', type: '', serviceEndpoint: '' };
+  return { id: "", type: "", serviceEndpoint: "" };
 }
 
 export const Service = {
@@ -432,13 +432,13 @@ export const Service = {
     message: Service,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.type !== '') {
+    if (message.type !== "") {
       writer.uint32(18).string(message.type);
     }
-    if (message.serviceEndpoint !== '') {
+    if (message.serviceEndpoint !== "") {
       writer.uint32(26).string(message.serviceEndpoint);
     }
     return writer;
@@ -470,11 +470,11 @@ export const Service = {
 
   fromJSON(object: any): Service {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      type: isSet(object.type) ? String(object.type) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      type: isSet(object.type) ? String(object.type) : "",
       serviceEndpoint: isSet(object.serviceEndpoint)
         ? String(object.serviceEndpoint)
-        : '',
+        : "",
     };
   },
 
@@ -489,16 +489,16 @@ export const Service = {
 
   fromPartial<I extends Exact<DeepPartial<Service>, I>>(object: I): Service {
     const message = createBaseService();
-    message.id = object.id ?? '';
-    message.type = object.type ?? '';
-    message.serviceEndpoint = object.serviceEndpoint ?? '';
+    message.id = object.id ?? "";
+    message.type = object.type ?? "";
+    message.serviceEndpoint = object.serviceEndpoint ?? "";
     return message;
   },
 };
 
 function createBaseDidMetadata(): DidMetadata {
   return {
-    versionId: '',
+    versionId: "",
     created: undefined,
     updated: undefined,
     deactivated: false,
@@ -510,7 +510,7 @@ export const DidMetadata = {
     message: DidMetadata,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.versionId !== '') {
+    if (message.versionId !== "") {
       writer.uint32(10).string(message.versionId);
     }
     if (message.created !== undefined) {
@@ -564,7 +564,7 @@ export const DidMetadata = {
 
   fromJSON(object: any): DidMetadata {
     return {
-      versionId: isSet(object.versionId) ? String(object.versionId) : '',
+      versionId: isSet(object.versionId) ? String(object.versionId) : "",
       created: isSet(object.created)
         ? fromJsonTimestamp(object.created)
         : undefined,
@@ -593,7 +593,7 @@ export const DidMetadata = {
     object: I
   ): DidMetadata {
     const message = createBaseDidMetadata();
-    message.versionId = object.versionId ?? '';
+    message.versionId = object.versionId ?? "";
     message.created = object.created ?? undefined;
     message.updated = object.updated ?? undefined;
     message.deactivated = object.deactivated ?? false;
@@ -644,7 +644,7 @@ function fromTimestamp(t: Timestamp): Date {
 function fromJsonTimestamp(o: any): Date {
   if (o instanceof Date) {
     return o;
-  } else if (typeof o === 'string') {
+  } else if (typeof o === "string") {
     return new Date(o);
   } else {
     return fromTimestamp(Timestamp.fromJSON(o));

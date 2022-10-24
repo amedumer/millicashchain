@@ -1,13 +1,13 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
 import {
   PageRequest,
   PageResponse,
-} from '../cosmos/base/query/v1beta1/pagination';
-import { DidDocument, DidMetadata } from './did';
+} from "../cosmos/base/query/v1beta1/pagination";
+import { DidDocument, DidMetadata } from "./did";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.did';
+export const protobufPackage = "millicent.cash.did";
 
 /** QueryDidDocumentsRequest is request type for Query/DidDocuments RPC method. */
 export interface QueryDidDocumentsRequest {
@@ -39,7 +39,7 @@ export interface QueryDidDocumentResponse {
 }
 
 function createBaseQueryDidDocumentsRequest(): QueryDidDocumentsRequest {
-  return { status: '', pagination: undefined };
+  return { status: "", pagination: undefined };
 }
 
 export const QueryDidDocumentsRequest = {
@@ -47,7 +47,7 @@ export const QueryDidDocumentsRequest = {
     message: QueryDidDocumentsRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.status !== '') {
+    if (message.status !== "") {
       writer.uint32(10).string(message.status);
     }
     if (message.pagination !== undefined) {
@@ -82,7 +82,7 @@ export const QueryDidDocumentsRequest = {
 
   fromJSON(object: any): QueryDidDocumentsRequest {
     return {
-      status: isSet(object.status) ? String(object.status) : '',
+      status: isSet(object.status) ? String(object.status) : "",
       pagination: isSet(object.pagination)
         ? PageRequest.fromJSON(object.pagination)
         : undefined,
@@ -103,7 +103,7 @@ export const QueryDidDocumentsRequest = {
     object: I
   ): QueryDidDocumentsRequest {
     const message = createBaseQueryDidDocumentsRequest();
-    message.status = object.status ?? '';
+    message.status = object.status ?? "";
     message.pagination =
       object.pagination !== undefined && object.pagination !== null
         ? PageRequest.fromPartial(object.pagination)
@@ -201,7 +201,7 @@ export const QueryDidDocumentsResponse = {
 };
 
 function createBaseQueryDidDocumentRequest(): QueryDidDocumentRequest {
-  return { id: '' };
+  return { id: "" };
 }
 
 export const QueryDidDocumentRequest = {
@@ -209,7 +209,7 @@ export const QueryDidDocumentRequest = {
     message: QueryDidDocumentRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     return writer;
@@ -237,7 +237,9 @@ export const QueryDidDocumentRequest = {
   },
 
   fromJSON(object: any): QueryDidDocumentRequest {
-    return { id: isSet(object.id) ? String(object.id) : '' };
+    return {
+      id: isSet(object.id) ? String(object.id) : "",
+    };
   },
 
   toJSON(message: QueryDidDocumentRequest): unknown {
@@ -250,7 +252,7 @@ export const QueryDidDocumentRequest = {
     object: I
   ): QueryDidDocumentRequest {
     const message = createBaseQueryDidDocumentRequest();
-    message.id = object.id ?? '';
+    message.id = object.id ?? "";
     return message;
   },
 };
@@ -357,9 +359,7 @@ export interface Query {
 
 export class QueryClientImpl implements Query {
   private readonly rpc: Rpc;
-  private readonly service: string;
-  constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || 'millicent.cash.did.Query';
+  constructor(rpc: Rpc) {
     this.rpc = rpc;
     this.DidDocuments = this.DidDocuments.bind(this);
     this.DidDocument = this.DidDocument.bind(this);
@@ -368,7 +368,11 @@ export class QueryClientImpl implements Query {
     request: QueryDidDocumentsRequest
   ): Promise<QueryDidDocumentsResponse> {
     const data = QueryDidDocumentsRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'DidDocuments', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Query",
+      "DidDocuments",
+      data
+    );
     return promise.then((data) =>
       QueryDidDocumentsResponse.decode(new _m0.Reader(data))
     );
@@ -378,7 +382,11 @@ export class QueryClientImpl implements Query {
     request: QueryDidDocumentRequest
   ): Promise<QueryDidDocumentResponse> {
     const data = QueryDidDocumentRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'DidDocument', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Query",
+      "DidDocument",
+      data
+    );
     return promise.then((data) =>
       QueryDidDocumentResponse.decode(new _m0.Reader(data))
     );

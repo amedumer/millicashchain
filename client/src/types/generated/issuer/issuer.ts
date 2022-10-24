@@ -1,8 +1,8 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.issuer';
+export const protobufPackage = "millicent.cash.issuer";
 
 /** Issuer represents an e-money token issuer */
 export interface Issuer {
@@ -13,7 +13,7 @@ export interface Issuer {
 }
 
 function createBaseIssuer(): Issuer {
-  return { token: '', fee: 0, issuerDid: '', paused: false };
+  return { token: "", fee: 0, issuerDid: "", paused: false };
 }
 
 export const Issuer = {
@@ -21,13 +21,13 @@ export const Issuer = {
     message: Issuer,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.token !== '') {
+    if (message.token !== "") {
       writer.uint32(10).string(message.token);
     }
     if (message.fee !== 0) {
       writer.uint32(16).int32(message.fee);
     }
-    if (message.issuerDid !== '') {
+    if (message.issuerDid !== "") {
       writer.uint32(26).string(message.issuerDid);
     }
     if (message.paused === true) {
@@ -65,9 +65,9 @@ export const Issuer = {
 
   fromJSON(object: any): Issuer {
     return {
-      token: isSet(object.token) ? String(object.token) : '',
+      token: isSet(object.token) ? String(object.token) : "",
       fee: isSet(object.fee) ? Number(object.fee) : 0,
-      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : '',
+      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : "",
       paused: isSet(object.paused) ? Boolean(object.paused) : false,
     };
   },
@@ -83,9 +83,9 @@ export const Issuer = {
 
   fromPartial<I extends Exact<DeepPartial<Issuer>, I>>(object: I): Issuer {
     const message = createBaseIssuer();
-    message.token = object.token ?? '';
+    message.token = object.token ?? "";
     message.fee = object.fee ?? 0;
-    message.issuerDid = object.issuerDid ?? '';
+    message.issuerDid = object.issuerDid ?? "";
     message.paused = object.paused ?? false;
     return message;
   },

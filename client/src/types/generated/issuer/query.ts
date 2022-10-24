@@ -1,13 +1,13 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
 import {
   PageRequest,
   PageResponse,
-} from '../cosmos/base/query/v1beta1/pagination';
-import { Issuer } from './issuer';
+} from "../cosmos/base/query/v1beta1/pagination";
+import Long from "long";
+import { Issuer } from "./issuer";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.issuer';
+export const protobufPackage = "millicent.cash.issuer";
 
 export interface QueryIssuersRequest {
   /** status enables to query for validators matching a given status. */
@@ -25,7 +25,7 @@ export interface QueryIssuersResponse {
 }
 
 function createBaseQueryIssuersRequest(): QueryIssuersRequest {
-  return { status: '', pagination: undefined };
+  return { status: "", pagination: undefined };
 }
 
 export const QueryIssuersRequest = {
@@ -33,7 +33,7 @@ export const QueryIssuersRequest = {
     message: QueryIssuersRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.status !== '') {
+    if (message.status !== "") {
       writer.uint32(10).string(message.status);
     }
     if (message.pagination !== undefined) {
@@ -65,7 +65,7 @@ export const QueryIssuersRequest = {
 
   fromJSON(object: any): QueryIssuersRequest {
     return {
-      status: isSet(object.status) ? String(object.status) : '',
+      status: isSet(object.status) ? String(object.status) : "",
       pagination: isSet(object.pagination)
         ? PageRequest.fromJSON(object.pagination)
         : undefined,
@@ -86,7 +86,7 @@ export const QueryIssuersRequest = {
     object: I
   ): QueryIssuersRequest {
     const message = createBaseQueryIssuersRequest();
-    message.status = object.status ?? '';
+    message.status = object.status ?? "";
     message.pagination =
       object.pagination !== undefined && object.pagination !== null
         ? PageRequest.fromPartial(object.pagination)
@@ -187,15 +187,17 @@ export interface Query {
 
 export class QueryClientImpl implements Query {
   private readonly rpc: Rpc;
-  private readonly service: string;
-  constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || 'millicent.cash.issuer.Query';
+  constructor(rpc: Rpc) {
     this.rpc = rpc;
     this.Issuers = this.Issuers.bind(this);
   }
   Issuers(request: QueryIssuersRequest): Promise<QueryIssuersResponse> {
     const data = QueryIssuersRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'Issuers', data);
+    const promise = this.rpc.request(
+      "millicent.cash.issuer.Query",
+      "Issuers",
+      data
+    );
     return promise.then((data) =>
       QueryIssuersResponse.decode(new _m0.Reader(data))
     );

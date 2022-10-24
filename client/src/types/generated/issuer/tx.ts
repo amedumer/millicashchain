@@ -1,9 +1,9 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
-import { VerifiableCredential } from '../verifiable-credential/verifiable-credential';
+import { VerifiableCredential } from "../verifiable-credential/verifiable-credential";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.issuer';
+export const protobufPackage = "millicent.cash.issuer";
 
 /** MsgCreateIssuer defines an SDK message for creating an emoney token issuer. */
 export interface MsgCreateIssuer {
@@ -54,7 +54,7 @@ export interface MsgIssueUserCredential {
 export interface MsgIssueUserCredentialResponse {}
 
 function createBaseMsgCreateIssuer(): MsgCreateIssuer {
-  return { token: '', fee: 0, issuerDid: '', licenseCredId: '', owner: '' };
+  return { token: "", fee: 0, issuerDid: "", licenseCredId: "", owner: "" };
 }
 
 export const MsgCreateIssuer = {
@@ -62,19 +62,19 @@ export const MsgCreateIssuer = {
     message: MsgCreateIssuer,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.token !== '') {
+    if (message.token !== "") {
       writer.uint32(10).string(message.token);
     }
     if (message.fee !== 0) {
       writer.uint32(16).int32(message.fee);
     }
-    if (message.issuerDid !== '') {
+    if (message.issuerDid !== "") {
       writer.uint32(26).string(message.issuerDid);
     }
-    if (message.licenseCredId !== '') {
+    if (message.licenseCredId !== "") {
       writer.uint32(34).string(message.licenseCredId);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(42).string(message.owner);
     }
     return writer;
@@ -112,13 +112,13 @@ export const MsgCreateIssuer = {
 
   fromJSON(object: any): MsgCreateIssuer {
     return {
-      token: isSet(object.token) ? String(object.token) : '',
+      token: isSet(object.token) ? String(object.token) : "",
       fee: isSet(object.fee) ? Number(object.fee) : 0,
-      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : '',
+      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : "",
       licenseCredId: isSet(object.licenseCredId)
         ? String(object.licenseCredId)
-        : '',
-      owner: isSet(object.owner) ? String(object.owner) : '',
+        : "",
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -137,11 +137,11 @@ export const MsgCreateIssuer = {
     object: I
   ): MsgCreateIssuer {
     const message = createBaseMsgCreateIssuer();
-    message.token = object.token ?? '';
+    message.token = object.token ?? "";
     message.fee = object.fee ?? 0;
-    message.issuerDid = object.issuerDid ?? '';
-    message.licenseCredId = object.licenseCredId ?? '';
-    message.owner = object.owner ?? '';
+    message.issuerDid = object.issuerDid ?? "";
+    message.licenseCredId = object.licenseCredId ?? "";
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -194,7 +194,7 @@ export const MsgCreateIssuerResponse = {
 };
 
 function createBaseMsgBurnToken(): MsgBurnToken {
-  return { issuerDid: '', licenseCredId: '', amount: '', owner: '' };
+  return { issuerDid: "", licenseCredId: "", amount: "", owner: "" };
 }
 
 export const MsgBurnToken = {
@@ -202,16 +202,16 @@ export const MsgBurnToken = {
     message: MsgBurnToken,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.issuerDid !== '') {
+    if (message.issuerDid !== "") {
       writer.uint32(10).string(message.issuerDid);
     }
-    if (message.licenseCredId !== '') {
+    if (message.licenseCredId !== "") {
       writer.uint32(18).string(message.licenseCredId);
     }
-    if (message.amount !== '') {
+    if (message.amount !== "") {
       writer.uint32(26).string(message.amount);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(34).string(message.owner);
     }
     return writer;
@@ -246,12 +246,12 @@ export const MsgBurnToken = {
 
   fromJSON(object: any): MsgBurnToken {
     return {
-      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : '',
+      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : "",
       licenseCredId: isSet(object.licenseCredId)
         ? String(object.licenseCredId)
-        : '',
-      amount: isSet(object.amount) ? String(object.amount) : '',
-      owner: isSet(object.owner) ? String(object.owner) : '',
+        : "",
+      amount: isSet(object.amount) ? String(object.amount) : "",
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -269,10 +269,10 @@ export const MsgBurnToken = {
     object: I
   ): MsgBurnToken {
     const message = createBaseMsgBurnToken();
-    message.issuerDid = object.issuerDid ?? '';
-    message.licenseCredId = object.licenseCredId ?? '';
-    message.amount = object.amount ?? '';
-    message.owner = object.owner ?? '';
+    message.issuerDid = object.issuerDid ?? "";
+    message.licenseCredId = object.licenseCredId ?? "";
+    message.amount = object.amount ?? "";
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -325,7 +325,7 @@ export const MsgBurnTokenResponse = {
 };
 
 function createBaseMsgMintToken(): MsgMintToken {
-  return { issuerDid: '', licenseCredId: '', amount: '', owner: '' };
+  return { issuerDid: "", licenseCredId: "", amount: "", owner: "" };
 }
 
 export const MsgMintToken = {
@@ -333,16 +333,16 @@ export const MsgMintToken = {
     message: MsgMintToken,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.issuerDid !== '') {
+    if (message.issuerDid !== "") {
       writer.uint32(10).string(message.issuerDid);
     }
-    if (message.licenseCredId !== '') {
+    if (message.licenseCredId !== "") {
       writer.uint32(18).string(message.licenseCredId);
     }
-    if (message.amount !== '') {
+    if (message.amount !== "") {
       writer.uint32(26).string(message.amount);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(34).string(message.owner);
     }
     return writer;
@@ -377,12 +377,12 @@ export const MsgMintToken = {
 
   fromJSON(object: any): MsgMintToken {
     return {
-      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : '',
+      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : "",
       licenseCredId: isSet(object.licenseCredId)
         ? String(object.licenseCredId)
-        : '',
-      amount: isSet(object.amount) ? String(object.amount) : '',
-      owner: isSet(object.owner) ? String(object.owner) : '',
+        : "",
+      amount: isSet(object.amount) ? String(object.amount) : "",
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -400,10 +400,10 @@ export const MsgMintToken = {
     object: I
   ): MsgMintToken {
     const message = createBaseMsgMintToken();
-    message.issuerDid = object.issuerDid ?? '';
-    message.licenseCredId = object.licenseCredId ?? '';
-    message.amount = object.amount ?? '';
-    message.owner = object.owner ?? '';
+    message.issuerDid = object.issuerDid ?? "";
+    message.licenseCredId = object.licenseCredId ?? "";
+    message.amount = object.amount ?? "";
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -456,7 +456,7 @@ export const MsgMintTokenResponse = {
 };
 
 function createBaseMsgPauseToken(): MsgPauseToken {
-  return { issuerDid: '', licenseCredId: '', owner: '' };
+  return { issuerDid: "", licenseCredId: "", owner: "" };
 }
 
 export const MsgPauseToken = {
@@ -464,13 +464,13 @@ export const MsgPauseToken = {
     message: MsgPauseToken,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.issuerDid !== '') {
+    if (message.issuerDid !== "") {
       writer.uint32(10).string(message.issuerDid);
     }
-    if (message.licenseCredId !== '') {
+    if (message.licenseCredId !== "") {
       writer.uint32(18).string(message.licenseCredId);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(34).string(message.owner);
     }
     return writer;
@@ -502,11 +502,11 @@ export const MsgPauseToken = {
 
   fromJSON(object: any): MsgPauseToken {
     return {
-      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : '',
+      issuerDid: isSet(object.issuerDid) ? String(object.issuerDid) : "",
       licenseCredId: isSet(object.licenseCredId)
         ? String(object.licenseCredId)
-        : '',
-      owner: isSet(object.owner) ? String(object.owner) : '',
+        : "",
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -523,9 +523,9 @@ export const MsgPauseToken = {
     object: I
   ): MsgPauseToken {
     const message = createBaseMsgPauseToken();
-    message.issuerDid = object.issuerDid ?? '';
-    message.licenseCredId = object.licenseCredId ?? '';
-    message.owner = object.owner ?? '';
+    message.issuerDid = object.issuerDid ?? "";
+    message.licenseCredId = object.licenseCredId ?? "";
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -578,7 +578,7 @@ export const MsgPauseTokenResponse = {
 };
 
 function createBaseMsgIssueUserCredential(): MsgIssueUserCredential {
-  return { credential: undefined, owner: '' };
+  return { credential: undefined, owner: "" };
 }
 
 export const MsgIssueUserCredential = {
@@ -592,7 +592,7 @@ export const MsgIssueUserCredential = {
         writer.uint32(10).fork()
       ).ldelim();
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     return writer;
@@ -630,7 +630,7 @@ export const MsgIssueUserCredential = {
       credential: isSet(object.credential)
         ? VerifiableCredential.fromJSON(object.credential)
         : undefined,
-      owner: isSet(object.owner) ? String(object.owner) : '',
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -652,7 +652,7 @@ export const MsgIssueUserCredential = {
       object.credential !== undefined && object.credential !== null
         ? VerifiableCredential.fromPartial(object.credential)
         : undefined;
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -722,9 +722,7 @@ export interface Msg {
 
 export class MsgClientImpl implements Msg {
   private readonly rpc: Rpc;
-  private readonly service: string;
-  constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || 'millicent.cash.issuer.Msg';
+  constructor(rpc: Rpc) {
     this.rpc = rpc;
     this.CreateIssuer = this.CreateIssuer.bind(this);
     this.BurnToken = this.BurnToken.bind(this);
@@ -734,7 +732,11 @@ export class MsgClientImpl implements Msg {
   }
   CreateIssuer(request: MsgCreateIssuer): Promise<MsgCreateIssuerResponse> {
     const data = MsgCreateIssuer.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'CreateIssuer', data);
+    const promise = this.rpc.request(
+      "millicent.cash.issuer.Msg",
+      "CreateIssuer",
+      data
+    );
     return promise.then((data) =>
       MsgCreateIssuerResponse.decode(new _m0.Reader(data))
     );
@@ -742,7 +744,11 @@ export class MsgClientImpl implements Msg {
 
   BurnToken(request: MsgBurnToken): Promise<MsgBurnTokenResponse> {
     const data = MsgBurnToken.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'BurnToken', data);
+    const promise = this.rpc.request(
+      "millicent.cash.issuer.Msg",
+      "BurnToken",
+      data
+    );
     return promise.then((data) =>
       MsgBurnTokenResponse.decode(new _m0.Reader(data))
     );
@@ -750,7 +756,11 @@ export class MsgClientImpl implements Msg {
 
   MintToken(request: MsgMintToken): Promise<MsgMintTokenResponse> {
     const data = MsgMintToken.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'MintToken', data);
+    const promise = this.rpc.request(
+      "millicent.cash.issuer.Msg",
+      "MintToken",
+      data
+    );
     return promise.then((data) =>
       MsgMintTokenResponse.decode(new _m0.Reader(data))
     );
@@ -758,7 +768,11 @@ export class MsgClientImpl implements Msg {
 
   PauseToken(request: MsgPauseToken): Promise<MsgPauseTokenResponse> {
     const data = MsgPauseToken.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'PauseToken', data);
+    const promise = this.rpc.request(
+      "millicent.cash.issuer.Msg",
+      "PauseToken",
+      data
+    );
     return promise.then((data) =>
       MsgPauseTokenResponse.decode(new _m0.Reader(data))
     );
@@ -768,7 +782,11 @@ export class MsgClientImpl implements Msg {
     request: MsgIssueUserCredential
   ): Promise<MsgIssueUserCredentialResponse> {
     const data = MsgIssueUserCredential.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'IssueUserCredential', data);
+    const promise = this.rpc.request(
+      "millicent.cash.issuer.Msg",
+      "IssueUserCredential",
+      data
+    );
     return promise.then((data) =>
       MsgIssueUserCredentialResponse.decode(new _m0.Reader(data))
     );

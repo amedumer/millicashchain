@@ -1,8 +1,8 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.did';
+export const protobufPackage = "millicent.cash.did";
 
 /** DidDocumentCreatedEvent is an event triggered on a DID document creation */
 export interface DidDocumentCreatedEvent {
@@ -21,7 +21,7 @@ export interface DidDocumentUpdatedEvent {
 }
 
 function createBaseDidDocumentCreatedEvent(): DidDocumentCreatedEvent {
-  return { did: '', signer: '' };
+  return { did: "", signer: "" };
 }
 
 export const DidDocumentCreatedEvent = {
@@ -29,10 +29,10 @@ export const DidDocumentCreatedEvent = {
     message: DidDocumentCreatedEvent,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.did !== '') {
+    if (message.did !== "") {
       writer.uint32(10).string(message.did);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(18).string(message.signer);
     }
     return writer;
@@ -64,8 +64,8 @@ export const DidDocumentCreatedEvent = {
 
   fromJSON(object: any): DidDocumentCreatedEvent {
     return {
-      did: isSet(object.did) ? String(object.did) : '',
-      signer: isSet(object.signer) ? String(object.signer) : '',
+      did: isSet(object.did) ? String(object.did) : "",
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -80,14 +80,14 @@ export const DidDocumentCreatedEvent = {
     object: I
   ): DidDocumentCreatedEvent {
     const message = createBaseDidDocumentCreatedEvent();
-    message.did = object.did ?? '';
-    message.signer = object.signer ?? '';
+    message.did = object.did ?? "";
+    message.signer = object.signer ?? "";
     return message;
   },
 };
 
 function createBaseDidDocumentUpdatedEvent(): DidDocumentUpdatedEvent {
-  return { did: '', signer: '' };
+  return { did: "", signer: "" };
 }
 
 export const DidDocumentUpdatedEvent = {
@@ -95,10 +95,10 @@ export const DidDocumentUpdatedEvent = {
     message: DidDocumentUpdatedEvent,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.did !== '') {
+    if (message.did !== "") {
       writer.uint32(10).string(message.did);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(18).string(message.signer);
     }
     return writer;
@@ -130,8 +130,8 @@ export const DidDocumentUpdatedEvent = {
 
   fromJSON(object: any): DidDocumentUpdatedEvent {
     return {
-      did: isSet(object.did) ? String(object.did) : '',
-      signer: isSet(object.signer) ? String(object.signer) : '',
+      did: isSet(object.did) ? String(object.did) : "",
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -146,8 +146,8 @@ export const DidDocumentUpdatedEvent = {
     object: I
   ): DidDocumentUpdatedEvent {
     const message = createBaseDidDocumentUpdatedEvent();
-    message.did = object.did ?? '';
-    message.signer = object.signer ?? '';
+    message.did = object.did ?? "";
+    message.signer = object.signer ?? "";
     return message;
   },
 };

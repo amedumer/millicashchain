@@ -1,9 +1,9 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
-import { VerifiableCredential } from '../verifiable-credential/verifiable-credential';
+import { VerifiableCredential } from "../verifiable-credential/verifiable-credential";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.regulator';
+export const protobufPackage = "millicent.cash.regulator";
 
 /** MsgIssueRegulatorCredential is used to activate a regulator on chain */
 export interface MsgIssueRegulatorCredential {
@@ -35,7 +35,7 @@ export interface MsgIssueLicenseCredential {
 export interface MsgIssueLicenseCredentialResponse {}
 
 function createBaseMsgIssueRegulatorCredential(): MsgIssueRegulatorCredential {
-  return { credential: undefined, owner: '' };
+  return { credential: undefined, owner: "" };
 }
 
 export const MsgIssueRegulatorCredential = {
@@ -49,7 +49,7 @@ export const MsgIssueRegulatorCredential = {
         writer.uint32(10).fork()
       ).ldelim();
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     return writer;
@@ -87,7 +87,7 @@ export const MsgIssueRegulatorCredential = {
       credential: isSet(object.credential)
         ? VerifiableCredential.fromJSON(object.credential)
         : undefined,
-      owner: isSet(object.owner) ? String(object.owner) : '',
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -109,7 +109,7 @@ export const MsgIssueRegulatorCredential = {
       object.credential !== undefined && object.credential !== null
         ? VerifiableCredential.fromPartial(object.credential)
         : undefined;
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -162,7 +162,7 @@ export const MsgIssueRegulatorCredentialResponse = {
 };
 
 function createBaseMsgIssueRegistrationCredential(): MsgIssueRegistrationCredential {
-  return { credential: undefined, owner: '' };
+  return { credential: undefined, owner: "" };
 }
 
 export const MsgIssueRegistrationCredential = {
@@ -176,7 +176,7 @@ export const MsgIssueRegistrationCredential = {
         writer.uint32(10).fork()
       ).ldelim();
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     return writer;
@@ -214,7 +214,7 @@ export const MsgIssueRegistrationCredential = {
       credential: isSet(object.credential)
         ? VerifiableCredential.fromJSON(object.credential)
         : undefined,
-      owner: isSet(object.owner) ? String(object.owner) : '',
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -236,7 +236,7 @@ export const MsgIssueRegistrationCredential = {
       object.credential !== undefined && object.credential !== null
         ? VerifiableCredential.fromPartial(object.credential)
         : undefined;
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -289,7 +289,7 @@ export const MsgIssueRegistrationCredentialResponse = {
 };
 
 function createBaseMsgIssueLicenseCredential(): MsgIssueLicenseCredential {
-  return { credential: undefined, owner: '' };
+  return { credential: undefined, owner: "" };
 }
 
 export const MsgIssueLicenseCredential = {
@@ -303,7 +303,7 @@ export const MsgIssueLicenseCredential = {
         writer.uint32(10).fork()
       ).ldelim();
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     return writer;
@@ -341,7 +341,7 @@ export const MsgIssueLicenseCredential = {
       credential: isSet(object.credential)
         ? VerifiableCredential.fromJSON(object.credential)
         : undefined,
-      owner: isSet(object.owner) ? String(object.owner) : '',
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -363,7 +363,7 @@ export const MsgIssueLicenseCredential = {
       object.credential !== undefined && object.credential !== null
         ? VerifiableCredential.fromPartial(object.credential)
         : undefined;
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -436,9 +436,7 @@ export interface Msg {
 
 export class MsgClientImpl implements Msg {
   private readonly rpc: Rpc;
-  private readonly service: string;
-  constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || 'millicent.cash.regulator.Msg';
+  constructor(rpc: Rpc) {
     this.rpc = rpc;
     this.IssueRegulatorCredential = this.IssueRegulatorCredential.bind(this);
     this.IssueRegistrationCredential =
@@ -450,8 +448,8 @@ export class MsgClientImpl implements Msg {
   ): Promise<MsgIssueRegulatorCredentialResponse> {
     const data = MsgIssueRegulatorCredential.encode(request).finish();
     const promise = this.rpc.request(
-      this.service,
-      'IssueRegulatorCredential',
+      "millicent.cash.regulator.Msg",
+      "IssueRegulatorCredential",
       data
     );
     return promise.then((data) =>
@@ -464,8 +462,8 @@ export class MsgClientImpl implements Msg {
   ): Promise<MsgIssueRegistrationCredentialResponse> {
     const data = MsgIssueRegistrationCredential.encode(request).finish();
     const promise = this.rpc.request(
-      this.service,
-      'IssueRegistrationCredential',
+      "millicent.cash.regulator.Msg",
+      "IssueRegistrationCredential",
       data
     );
     return promise.then((data) =>
@@ -478,8 +476,8 @@ export class MsgClientImpl implements Msg {
   ): Promise<MsgIssueLicenseCredentialResponse> {
     const data = MsgIssueLicenseCredential.encode(request).finish();
     const promise = this.rpc.request(
-      this.service,
-      'IssueLicenseCredential',
+      "millicent.cash.regulator.Msg",
+      "IssueLicenseCredential",
       data
     );
     return promise.then((data) =>

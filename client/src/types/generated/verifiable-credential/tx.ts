@@ -1,9 +1,9 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
-import { VerifiableCredential } from './verifiable-credential';
+import { VerifiableCredential } from "./verifiable-credential";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.verifiablecredential';
+export const protobufPackage = "millicent.cash.verifiablecredential";
 
 /** MsgRevokeCredential */
 export interface MsgRevokeCredential {
@@ -27,7 +27,7 @@ export interface MsgIssueCredential {
 export interface MsgIssueCredentialResponse {}
 
 function createBaseMsgRevokeCredential(): MsgRevokeCredential {
-  return { credentialId: '', owner: '' };
+  return { credentialId: "", owner: "" };
 }
 
 export const MsgRevokeCredential = {
@@ -35,10 +35,10 @@ export const MsgRevokeCredential = {
     message: MsgRevokeCredential,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.credentialId !== '') {
+    if (message.credentialId !== "") {
       writer.uint32(10).string(message.credentialId);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     return writer;
@@ -69,8 +69,8 @@ export const MsgRevokeCredential = {
     return {
       credentialId: isSet(object.credentialId)
         ? String(object.credentialId)
-        : '',
-      owner: isSet(object.owner) ? String(object.owner) : '',
+        : "",
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -86,8 +86,8 @@ export const MsgRevokeCredential = {
     object: I
   ): MsgRevokeCredential {
     const message = createBaseMsgRevokeCredential();
-    message.credentialId = object.credentialId ?? '';
-    message.owner = object.owner ?? '';
+    message.credentialId = object.credentialId ?? "";
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -140,7 +140,7 @@ export const MsgRevokeCredentialResponse = {
 };
 
 function createBaseMsgIssueCredential(): MsgIssueCredential {
-  return { credential: undefined, owner: '' };
+  return { credential: undefined, owner: "" };
 }
 
 export const MsgIssueCredential = {
@@ -154,7 +154,7 @@ export const MsgIssueCredential = {
         writer.uint32(10).fork()
       ).ldelim();
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     return writer;
@@ -189,7 +189,7 @@ export const MsgIssueCredential = {
       credential: isSet(object.credential)
         ? VerifiableCredential.fromJSON(object.credential)
         : undefined,
-      owner: isSet(object.owner) ? String(object.owner) : '',
+      owner: isSet(object.owner) ? String(object.owner) : "",
     };
   },
 
@@ -211,7 +211,7 @@ export const MsgIssueCredential = {
       object.credential !== undefined && object.credential !== null
         ? VerifiableCredential.fromPartial(object.credential)
         : undefined;
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
 };
@@ -273,9 +273,7 @@ export interface Msg {
 
 export class MsgClientImpl implements Msg {
   private readonly rpc: Rpc;
-  private readonly service: string;
-  constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || 'millicent.cash.verifiablecredential.Msg';
+  constructor(rpc: Rpc) {
     this.rpc = rpc;
     this.RevokeCredential = this.RevokeCredential.bind(this);
   }
@@ -283,7 +281,11 @@ export class MsgClientImpl implements Msg {
     request: MsgRevokeCredential
   ): Promise<MsgRevokeCredentialResponse> {
     const data = MsgRevokeCredential.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'RevokeCredential', data);
+    const promise = this.rpc.request(
+      "millicent.cash.verifiablecredential.Msg",
+      "RevokeCredential",
+      data
+    );
     return promise.then((data) =>
       MsgRevokeCredentialResponse.decode(new _m0.Reader(data))
     );

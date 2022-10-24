@@ -1,9 +1,9 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
-import { DidDocument, Service, VerificationMethod } from './did';
+import { VerificationMethod, DidDocument, Service } from "./did";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.did';
+export const protobufPackage = "millicent.cash.did";
 
 /**
  * Verification is a message that allows to assign a verification method
@@ -223,11 +223,11 @@ export const Verification = {
 
 function createBaseMsgCreateDidDocument(): MsgCreateDidDocument {
   return {
-    id: '',
+    id: "",
     controllers: [],
     verifications: [],
     services: [],
-    signer: '',
+    signer: "",
   };
 }
 
@@ -236,7 +236,7 @@ export const MsgCreateDidDocument = {
     message: MsgCreateDidDocument,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     for (const v of message.controllers) {
@@ -248,7 +248,7 @@ export const MsgCreateDidDocument = {
     for (const v of message.services) {
       Service.encode(v!, writer.uint32(34).fork()).ldelim();
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(42).string(message.signer);
     }
     return writer;
@@ -291,7 +291,7 @@ export const MsgCreateDidDocument = {
 
   fromJSON(object: any): MsgCreateDidDocument {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       controllers: Array.isArray(object?.controllers)
         ? object.controllers.map((e: any) => String(e))
         : [],
@@ -301,7 +301,7 @@ export const MsgCreateDidDocument = {
       services: Array.isArray(object?.services)
         ? object.services.map((e: any) => Service.fromJSON(e))
         : [],
-      signer: isSet(object.signer) ? String(object.signer) : '',
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -335,13 +335,13 @@ export const MsgCreateDidDocument = {
     object: I
   ): MsgCreateDidDocument {
     const message = createBaseMsgCreateDidDocument();
-    message.id = object.id ?? '';
+    message.id = object.id ?? "";
     message.controllers = object.controllers?.map((e) => e) || [];
     message.verifications =
       object.verifications?.map((e) => Verification.fromPartial(e)) || [];
     message.services =
       object.services?.map((e) => Service.fromPartial(e)) || [];
-    message.signer = object.signer ?? '';
+    message.signer = object.signer ?? "";
     return message;
   },
 };
@@ -394,7 +394,7 @@ export const MsgCreateDidDocumentResponse = {
 };
 
 function createBaseMsgUpdateDidDocument(): MsgUpdateDidDocument {
-  return { doc: undefined, signer: '' };
+  return { doc: undefined, signer: "" };
 }
 
 export const MsgUpdateDidDocument = {
@@ -405,7 +405,7 @@ export const MsgUpdateDidDocument = {
     if (message.doc !== undefined) {
       DidDocument.encode(message.doc, writer.uint32(10).fork()).ldelim();
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(42).string(message.signer);
     }
     return writer;
@@ -438,7 +438,7 @@ export const MsgUpdateDidDocument = {
   fromJSON(object: any): MsgUpdateDidDocument {
     return {
       doc: isSet(object.doc) ? DidDocument.fromJSON(object.doc) : undefined,
-      signer: isSet(object.signer) ? String(object.signer) : '',
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -458,7 +458,7 @@ export const MsgUpdateDidDocument = {
       object.doc !== undefined && object.doc !== null
         ? DidDocument.fromPartial(object.doc)
         : undefined;
-    message.signer = object.signer ?? '';
+    message.signer = object.signer ?? "";
     return message;
   },
 };
@@ -511,7 +511,7 @@ export const MsgUpdateDidDocumentResponse = {
 };
 
 function createBaseMsgAddVerification(): MsgAddVerification {
-  return { id: '', verification: undefined, signer: '' };
+  return { id: "", verification: undefined, signer: "" };
 }
 
 export const MsgAddVerification = {
@@ -519,7 +519,7 @@ export const MsgAddVerification = {
     message: MsgAddVerification,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     if (message.verification !== undefined) {
@@ -528,7 +528,7 @@ export const MsgAddVerification = {
         writer.uint32(18).fork()
       ).ldelim();
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(26).string(message.signer);
     }
     return writer;
@@ -560,11 +560,11 @@ export const MsgAddVerification = {
 
   fromJSON(object: any): MsgAddVerification {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       verification: isSet(object.verification)
         ? Verification.fromJSON(object.verification)
         : undefined,
-      signer: isSet(object.signer) ? String(object.signer) : '',
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -583,12 +583,12 @@ export const MsgAddVerification = {
     object: I
   ): MsgAddVerification {
     const message = createBaseMsgAddVerification();
-    message.id = object.id ?? '';
+    message.id = object.id ?? "";
     message.verification =
       object.verification !== undefined && object.verification !== null
         ? Verification.fromPartial(object.verification)
         : undefined;
-    message.signer = object.signer ?? '';
+    message.signer = object.signer ?? "";
     return message;
   },
 };
@@ -641,7 +641,7 @@ export const MsgAddVerificationResponse = {
 };
 
 function createBaseMsgSetVerificationRelationships(): MsgSetVerificationRelationships {
-  return { id: '', methodId: '', relationships: [], signer: '' };
+  return { id: "", methodId: "", relationships: [], signer: "" };
 }
 
 export const MsgSetVerificationRelationships = {
@@ -649,16 +649,16 @@ export const MsgSetVerificationRelationships = {
     message: MsgSetVerificationRelationships,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.methodId !== '') {
+    if (message.methodId !== "") {
       writer.uint32(18).string(message.methodId);
     }
     for (const v of message.relationships) {
       writer.uint32(26).string(v!);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(34).string(message.signer);
     }
     return writer;
@@ -696,12 +696,12 @@ export const MsgSetVerificationRelationships = {
 
   fromJSON(object: any): MsgSetVerificationRelationships {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      methodId: isSet(object.methodId) ? String(object.methodId) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      methodId: isSet(object.methodId) ? String(object.methodId) : "",
       relationships: Array.isArray(object?.relationships)
         ? object.relationships.map((e: any) => String(e))
         : [],
-      signer: isSet(object.signer) ? String(object.signer) : '',
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -722,10 +722,10 @@ export const MsgSetVerificationRelationships = {
     object: I
   ): MsgSetVerificationRelationships {
     const message = createBaseMsgSetVerificationRelationships();
-    message.id = object.id ?? '';
-    message.methodId = object.methodId ?? '';
+    message.id = object.id ?? "";
+    message.methodId = object.methodId ?? "";
     message.relationships = object.relationships?.map((e) => e) || [];
-    message.signer = object.signer ?? '';
+    message.signer = object.signer ?? "";
     return message;
   },
 };
@@ -778,7 +778,7 @@ export const MsgSetVerificationRelationshipsResponse = {
 };
 
 function createBaseMsgRevokeVerification(): MsgRevokeVerification {
-  return { id: '', methodId: '', signer: '' };
+  return { id: "", methodId: "", signer: "" };
 }
 
 export const MsgRevokeVerification = {
@@ -786,13 +786,13 @@ export const MsgRevokeVerification = {
     message: MsgRevokeVerification,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.methodId !== '') {
+    if (message.methodId !== "") {
       writer.uint32(18).string(message.methodId);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(26).string(message.signer);
     }
     return writer;
@@ -827,9 +827,9 @@ export const MsgRevokeVerification = {
 
   fromJSON(object: any): MsgRevokeVerification {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      methodId: isSet(object.methodId) ? String(object.methodId) : '',
-      signer: isSet(object.signer) ? String(object.signer) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      methodId: isSet(object.methodId) ? String(object.methodId) : "",
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -845,9 +845,9 @@ export const MsgRevokeVerification = {
     object: I
   ): MsgRevokeVerification {
     const message = createBaseMsgRevokeVerification();
-    message.id = object.id ?? '';
-    message.methodId = object.methodId ?? '';
-    message.signer = object.signer ?? '';
+    message.id = object.id ?? "";
+    message.methodId = object.methodId ?? "";
+    message.signer = object.signer ?? "";
     return message;
   },
 };
@@ -900,7 +900,7 @@ export const MsgRevokeVerificationResponse = {
 };
 
 function createBaseMsgAddService(): MsgAddService {
-  return { id: '', serviceData: undefined, signer: '' };
+  return { id: "", serviceData: undefined, signer: "" };
 }
 
 export const MsgAddService = {
@@ -908,13 +908,13 @@ export const MsgAddService = {
     message: MsgAddService,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     if (message.serviceData !== undefined) {
       Service.encode(message.serviceData, writer.uint32(18).fork()).ldelim();
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(26).string(message.signer);
     }
     return writer;
@@ -946,11 +946,11 @@ export const MsgAddService = {
 
   fromJSON(object: any): MsgAddService {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       serviceData: isSet(object.serviceData)
         ? Service.fromJSON(object.serviceData)
         : undefined,
-      signer: isSet(object.signer) ? String(object.signer) : '',
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -969,12 +969,12 @@ export const MsgAddService = {
     object: I
   ): MsgAddService {
     const message = createBaseMsgAddService();
-    message.id = object.id ?? '';
+    message.id = object.id ?? "";
     message.serviceData =
       object.serviceData !== undefined && object.serviceData !== null
         ? Service.fromPartial(object.serviceData)
         : undefined;
-    message.signer = object.signer ?? '';
+    message.signer = object.signer ?? "";
     return message;
   },
 };
@@ -1027,7 +1027,7 @@ export const MsgAddServiceResponse = {
 };
 
 function createBaseMsgDeleteService(): MsgDeleteService {
-  return { id: '', serviceId: '', signer: '' };
+  return { id: "", serviceId: "", signer: "" };
 }
 
 export const MsgDeleteService = {
@@ -1035,13 +1035,13 @@ export const MsgDeleteService = {
     message: MsgDeleteService,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.serviceId !== '') {
+    if (message.serviceId !== "") {
       writer.uint32(18).string(message.serviceId);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(26).string(message.signer);
     }
     return writer;
@@ -1073,9 +1073,9 @@ export const MsgDeleteService = {
 
   fromJSON(object: any): MsgDeleteService {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      serviceId: isSet(object.serviceId) ? String(object.serviceId) : '',
-      signer: isSet(object.signer) ? String(object.signer) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      serviceId: isSet(object.serviceId) ? String(object.serviceId) : "",
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -1091,9 +1091,9 @@ export const MsgDeleteService = {
     object: I
   ): MsgDeleteService {
     const message = createBaseMsgDeleteService();
-    message.id = object.id ?? '';
-    message.serviceId = object.serviceId ?? '';
-    message.signer = object.signer ?? '';
+    message.id = object.id ?? "";
+    message.serviceId = object.serviceId ?? "";
+    message.signer = object.signer ?? "";
     return message;
   },
 };
@@ -1146,7 +1146,7 @@ export const MsgDeleteServiceResponse = {
 };
 
 function createBaseMsgAddController(): MsgAddController {
-  return { id: '', controllerDid: '', signer: '' };
+  return { id: "", controllerDid: "", signer: "" };
 }
 
 export const MsgAddController = {
@@ -1154,13 +1154,13 @@ export const MsgAddController = {
     message: MsgAddController,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.controllerDid !== '') {
+    if (message.controllerDid !== "") {
       writer.uint32(18).string(message.controllerDid);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(26).string(message.signer);
     }
     return writer;
@@ -1192,11 +1192,11 @@ export const MsgAddController = {
 
   fromJSON(object: any): MsgAddController {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       controllerDid: isSet(object.controllerDid)
         ? String(object.controllerDid)
-        : '',
-      signer: isSet(object.signer) ? String(object.signer) : '',
+        : "",
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -1213,9 +1213,9 @@ export const MsgAddController = {
     object: I
   ): MsgAddController {
     const message = createBaseMsgAddController();
-    message.id = object.id ?? '';
-    message.controllerDid = object.controllerDid ?? '';
-    message.signer = object.signer ?? '';
+    message.id = object.id ?? "";
+    message.controllerDid = object.controllerDid ?? "";
+    message.signer = object.signer ?? "";
     return message;
   },
 };
@@ -1268,7 +1268,7 @@ export const MsgAddControllerResponse = {
 };
 
 function createBaseMsgDeleteController(): MsgDeleteController {
-  return { id: '', controllerDid: '', signer: '' };
+  return { id: "", controllerDid: "", signer: "" };
 }
 
 export const MsgDeleteController = {
@@ -1276,13 +1276,13 @@ export const MsgDeleteController = {
     message: MsgDeleteController,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.controllerDid !== '') {
+    if (message.controllerDid !== "") {
       writer.uint32(18).string(message.controllerDid);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(26).string(message.signer);
     }
     return writer;
@@ -1314,11 +1314,11 @@ export const MsgDeleteController = {
 
   fromJSON(object: any): MsgDeleteController {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       controllerDid: isSet(object.controllerDid)
         ? String(object.controllerDid)
-        : '',
-      signer: isSet(object.signer) ? String(object.signer) : '',
+        : "",
+      signer: isSet(object.signer) ? String(object.signer) : "",
     };
   },
 
@@ -1335,9 +1335,9 @@ export const MsgDeleteController = {
     object: I
   ): MsgDeleteController {
     const message = createBaseMsgDeleteController();
-    message.id = object.id ?? '';
-    message.controllerDid = object.controllerDid ?? '';
-    message.signer = object.signer ?? '';
+    message.id = object.id ?? "";
+    message.controllerDid = object.controllerDid ?? "";
+    message.signer = object.signer ?? "";
     return message;
   },
 };
@@ -1425,9 +1425,7 @@ export interface Msg {
 
 export class MsgClientImpl implements Msg {
   private readonly rpc: Rpc;
-  private readonly service: string;
-  constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || 'millicent.cash.did.Msg';
+  constructor(rpc: Rpc) {
     this.rpc = rpc;
     this.CreateDidDocument = this.CreateDidDocument.bind(this);
     this.UpdateDidDocument = this.UpdateDidDocument.bind(this);
@@ -1444,7 +1442,11 @@ export class MsgClientImpl implements Msg {
     request: MsgCreateDidDocument
   ): Promise<MsgCreateDidDocumentResponse> {
     const data = MsgCreateDidDocument.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'CreateDidDocument', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Msg",
+      "CreateDidDocument",
+      data
+    );
     return promise.then((data) =>
       MsgCreateDidDocumentResponse.decode(new _m0.Reader(data))
     );
@@ -1454,7 +1456,11 @@ export class MsgClientImpl implements Msg {
     request: MsgUpdateDidDocument
   ): Promise<MsgUpdateDidDocumentResponse> {
     const data = MsgUpdateDidDocument.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'UpdateDidDocument', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Msg",
+      "UpdateDidDocument",
+      data
+    );
     return promise.then((data) =>
       MsgUpdateDidDocumentResponse.decode(new _m0.Reader(data))
     );
@@ -1464,7 +1470,11 @@ export class MsgClientImpl implements Msg {
     request: MsgAddVerification
   ): Promise<MsgAddVerificationResponse> {
     const data = MsgAddVerification.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'AddVerification', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Msg",
+      "AddVerification",
+      data
+    );
     return promise.then((data) =>
       MsgAddVerificationResponse.decode(new _m0.Reader(data))
     );
@@ -1474,7 +1484,11 @@ export class MsgClientImpl implements Msg {
     request: MsgRevokeVerification
   ): Promise<MsgRevokeVerificationResponse> {
     const data = MsgRevokeVerification.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'RevokeVerification', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Msg",
+      "RevokeVerification",
+      data
+    );
     return promise.then((data) =>
       MsgRevokeVerificationResponse.decode(new _m0.Reader(data))
     );
@@ -1485,8 +1499,8 @@ export class MsgClientImpl implements Msg {
   ): Promise<MsgSetVerificationRelationshipsResponse> {
     const data = MsgSetVerificationRelationships.encode(request).finish();
     const promise = this.rpc.request(
-      this.service,
-      'SetVerificationRelationships',
+      "millicent.cash.did.Msg",
+      "SetVerificationRelationships",
       data
     );
     return promise.then((data) =>
@@ -1496,7 +1510,11 @@ export class MsgClientImpl implements Msg {
 
   AddService(request: MsgAddService): Promise<MsgAddServiceResponse> {
     const data = MsgAddService.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'AddService', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Msg",
+      "AddService",
+      data
+    );
     return promise.then((data) =>
       MsgAddServiceResponse.decode(new _m0.Reader(data))
     );
@@ -1504,7 +1522,11 @@ export class MsgClientImpl implements Msg {
 
   DeleteService(request: MsgDeleteService): Promise<MsgDeleteServiceResponse> {
     const data = MsgDeleteService.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'DeleteService', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Msg",
+      "DeleteService",
+      data
+    );
     return promise.then((data) =>
       MsgDeleteServiceResponse.decode(new _m0.Reader(data))
     );
@@ -1512,7 +1534,11 @@ export class MsgClientImpl implements Msg {
 
   AddController(request: MsgAddController): Promise<MsgAddControllerResponse> {
     const data = MsgAddController.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'AddController', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Msg",
+      "AddController",
+      data
+    );
     return promise.then((data) =>
       MsgAddControllerResponse.decode(new _m0.Reader(data))
     );
@@ -1522,7 +1548,11 @@ export class MsgClientImpl implements Msg {
     request: MsgDeleteController
   ): Promise<MsgDeleteControllerResponse> {
     const data = MsgDeleteController.encode(request).finish();
-    const promise = this.rpc.request(this.service, 'DeleteController', data);
+    const promise = this.rpc.request(
+      "millicent.cash.did.Msg",
+      "DeleteController",
+      data
+    );
     return promise.then((data) =>
       MsgDeleteControllerResponse.decode(new _m0.Reader(data))
     );

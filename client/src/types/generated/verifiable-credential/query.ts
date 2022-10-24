@@ -1,13 +1,13 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
 import {
   PageRequest,
   PageResponse,
-} from '../cosmos/base/query/v1beta1/pagination';
-import { VerifiableCredential } from './verifiable-credential';
+} from "../cosmos/base/query/v1beta1/pagination";
+import { VerifiableCredential } from "./verifiable-credential";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.verifiablecredential';
+export const protobufPackage = "millicent.cash.verifiablecredential";
 
 /** QueryVerifiableCredentialsRequest is request type for Query/VerifiableCredentials RPC method. */
 export interface QueryVerifiableCredentialsRequest {
@@ -44,7 +44,7 @@ export interface QueryValidateVerifiableCredentialResponse {
 }
 
 function createBaseQueryVerifiableCredentialsRequest(): QueryVerifiableCredentialsRequest {
-  return { status: '', pagination: undefined };
+  return { status: "", pagination: undefined };
 }
 
 export const QueryVerifiableCredentialsRequest = {
@@ -52,7 +52,7 @@ export const QueryVerifiableCredentialsRequest = {
     message: QueryVerifiableCredentialsRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.status !== '') {
+    if (message.status !== "") {
       writer.uint32(10).string(message.status);
     }
     if (message.pagination !== undefined) {
@@ -87,7 +87,7 @@ export const QueryVerifiableCredentialsRequest = {
 
   fromJSON(object: any): QueryVerifiableCredentialsRequest {
     return {
-      status: isSet(object.status) ? String(object.status) : '',
+      status: isSet(object.status) ? String(object.status) : "",
       pagination: isSet(object.pagination)
         ? PageRequest.fromJSON(object.pagination)
         : undefined,
@@ -108,7 +108,7 @@ export const QueryVerifiableCredentialsRequest = {
     I extends Exact<DeepPartial<QueryVerifiableCredentialsRequest>, I>
   >(object: I): QueryVerifiableCredentialsRequest {
     const message = createBaseQueryVerifiableCredentialsRequest();
-    message.status = object.status ?? '';
+    message.status = object.status ?? "";
     message.pagination =
       object.pagination !== undefined && object.pagination !== null
         ? PageRequest.fromPartial(object.pagination)
@@ -206,7 +206,7 @@ export const QueryVerifiableCredentialsResponse = {
 };
 
 function createBaseQueryVerifiableCredentialRequest(): QueryVerifiableCredentialRequest {
-  return { verifiableCredentialId: '' };
+  return { verifiableCredentialId: "" };
 }
 
 export const QueryVerifiableCredentialRequest = {
@@ -214,7 +214,7 @@ export const QueryVerifiableCredentialRequest = {
     message: QueryVerifiableCredentialRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.verifiableCredentialId !== '') {
+    if (message.verifiableCredentialId !== "") {
       writer.uint32(10).string(message.verifiableCredentialId);
     }
     return writer;
@@ -245,7 +245,7 @@ export const QueryVerifiableCredentialRequest = {
     return {
       verifiableCredentialId: isSet(object.verifiableCredentialId)
         ? String(object.verifiableCredentialId)
-        : '',
+        : "",
     };
   },
 
@@ -260,7 +260,7 @@ export const QueryVerifiableCredentialRequest = {
     I extends Exact<DeepPartial<QueryVerifiableCredentialRequest>, I>
   >(object: I): QueryVerifiableCredentialRequest {
     const message = createBaseQueryVerifiableCredentialRequest();
-    message.verifiableCredentialId = object.verifiableCredentialId ?? '';
+    message.verifiableCredentialId = object.verifiableCredentialId ?? "";
     return message;
   },
 };
@@ -374,7 +374,9 @@ export const QueryValidateVerifiableCredentialResponse = {
   },
 
   fromJSON(object: any): QueryValidateVerifiableCredentialResponse {
-    return { isValid: isSet(object.isValid) ? Boolean(object.isValid) : false };
+    return {
+      isValid: isSet(object.isValid) ? Boolean(object.isValid) : false,
+    };
   },
 
   toJSON(message: QueryValidateVerifiableCredentialResponse): unknown {
@@ -406,9 +408,7 @@ export interface Query {
 
 export class QueryClientImpl implements Query {
   private readonly rpc: Rpc;
-  private readonly service: string;
-  constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || 'millicent.cash.verifiablecredential.Query';
+  constructor(rpc: Rpc) {
     this.rpc = rpc;
     this.VerifiableCredentials = this.VerifiableCredentials.bind(this);
     this.VerifiableCredential = this.VerifiableCredential.bind(this);
@@ -418,8 +418,8 @@ export class QueryClientImpl implements Query {
   ): Promise<QueryVerifiableCredentialsResponse> {
     const data = QueryVerifiableCredentialsRequest.encode(request).finish();
     const promise = this.rpc.request(
-      this.service,
-      'VerifiableCredentials',
+      "millicent.cash.verifiablecredential.Query",
+      "VerifiableCredentials",
       data
     );
     return promise.then((data) =>
@@ -432,8 +432,8 @@ export class QueryClientImpl implements Query {
   ): Promise<QueryVerifiableCredentialResponse> {
     const data = QueryVerifiableCredentialRequest.encode(request).finish();
     const promise = this.rpc.request(
-      this.service,
-      'VerifiableCredential',
+      "millicent.cash.verifiablecredential.Query",
+      "VerifiableCredential",
       data
     );
     return promise.then((data) =>

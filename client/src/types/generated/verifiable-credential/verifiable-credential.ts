@@ -1,10 +1,10 @@
 /* eslint-disable */
-import Long from 'long';
-import _m0 from 'protobufjs/minimal';
-import { Coin } from '../cosmos/base/v1beta1/coin';
-import { Timestamp } from '../google/protobuf/timestamp';
+import { Coin } from "../cosmos/base/v1beta1/coin";
+import { Timestamp } from "../google/protobuf/timestamp";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'millicent.cash.verifiablecredential';
+export const protobufPackage = "millicent.cash.verifiablecredential";
 
 /** VerifiableCredential represents a verifiable credential */
 export interface VerifiableCredential {
@@ -168,9 +168,9 @@ export interface Proof {
 function createBaseVerifiableCredential(): VerifiableCredential {
   return {
     context: [],
-    id: '',
+    id: "",
     type: [],
-    issuer: '',
+    issuer: "",
     issuanceDate: undefined,
     regulatorCred: undefined,
     registrationCred: undefined,
@@ -188,13 +188,13 @@ export const VerifiableCredential = {
     for (const v of message.context) {
       writer.uint32(10).string(v!);
     }
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(18).string(message.id);
     }
     for (const v of message.type) {
       writer.uint32(26).string(v!);
     }
-    if (message.issuer !== '') {
+    if (message.issuer !== "") {
       writer.uint32(34).string(message.issuer);
     }
     if (message.issuanceDate !== undefined) {
@@ -300,11 +300,11 @@ export const VerifiableCredential = {
       context: Array.isArray(object?.context)
         ? object.context.map((e: any) => String(e))
         : [],
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       type: Array.isArray(object?.type)
         ? object.type.map((e: any) => String(e))
         : [],
-      issuer: isSet(object.issuer) ? String(object.issuer) : '',
+      issuer: isSet(object.issuer) ? String(object.issuer) : "",
       issuanceDate: isSet(object.issuanceDate)
         ? fromJsonTimestamp(object.issuanceDate)
         : undefined,
@@ -366,9 +366,9 @@ export const VerifiableCredential = {
   ): VerifiableCredential {
     const message = createBaseVerifiableCredential();
     message.context = object.context?.map((e) => e) || [];
-    message.id = object.id ?? '';
+    message.id = object.id ?? "";
     message.type = object.type?.map((e) => e) || [];
-    message.issuer = object.issuer ?? '';
+    message.issuer = object.issuer ?? "";
     message.issuanceDate = object.issuanceDate ?? undefined;
     message.regulatorCred =
       object.regulatorCred !== undefined && object.regulatorCred !== null
@@ -395,7 +395,7 @@ export const VerifiableCredential = {
 };
 
 function createBaseUserCredentialSubject(): UserCredentialSubject {
-  return { id: '', root: '', isVerified: false };
+  return { id: "", root: "", isVerified: false };
 }
 
 export const UserCredentialSubject = {
@@ -403,10 +403,10 @@ export const UserCredentialSubject = {
     message: UserCredentialSubject,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.root !== '') {
+    if (message.root !== "") {
       writer.uint32(18).string(message.root);
     }
     if (message.isVerified === true) {
@@ -444,8 +444,8 @@ export const UserCredentialSubject = {
 
   fromJSON(object: any): UserCredentialSubject {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      root: isSet(object.root) ? String(object.root) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      root: isSet(object.root) ? String(object.root) : "",
       isVerified: isSet(object.isVerified) ? Boolean(object.isVerified) : false,
     };
   },
@@ -462,8 +462,8 @@ export const UserCredentialSubject = {
     object: I
   ): UserCredentialSubject {
     const message = createBaseUserCredentialSubject();
-    message.id = object.id ?? '';
-    message.root = object.root ?? '';
+    message.id = object.id ?? "";
+    message.root = object.root ?? "";
     message.isVerified = object.isVerified ?? false;
     return message;
   },
@@ -471,10 +471,10 @@ export const UserCredentialSubject = {
 
 function createBaseLicenseCredentialSubject(): LicenseCredentialSubject {
   return {
-    id: '',
-    licenseType: '',
-    country: '',
-    authority: '',
+    id: "",
+    licenseType: "",
+    country: "",
+    authority: "",
     circulationLimit: undefined,
   };
 }
@@ -484,16 +484,16 @@ export const LicenseCredentialSubject = {
     message: LicenseCredentialSubject,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.licenseType !== '') {
+    if (message.licenseType !== "") {
       writer.uint32(18).string(message.licenseType);
     }
-    if (message.country !== '') {
+    if (message.country !== "") {
       writer.uint32(26).string(message.country);
     }
-    if (message.authority !== '') {
+    if (message.authority !== "") {
       writer.uint32(34).string(message.authority);
     }
     if (message.circulationLimit !== undefined) {
@@ -537,10 +537,10 @@ export const LicenseCredentialSubject = {
 
   fromJSON(object: any): LicenseCredentialSubject {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      licenseType: isSet(object.licenseType) ? String(object.licenseType) : '',
-      country: isSet(object.country) ? String(object.country) : '',
-      authority: isSet(object.authority) ? String(object.authority) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      licenseType: isSet(object.licenseType) ? String(object.licenseType) : "",
+      country: isSet(object.country) ? String(object.country) : "",
+      authority: isSet(object.authority) ? String(object.authority) : "",
       circulationLimit: isSet(object.circulationLimit)
         ? Coin.fromJSON(object.circulationLimit)
         : undefined,
@@ -565,10 +565,10 @@ export const LicenseCredentialSubject = {
     object: I
   ): LicenseCredentialSubject {
     const message = createBaseLicenseCredentialSubject();
-    message.id = object.id ?? '';
-    message.licenseType = object.licenseType ?? '';
-    message.country = object.country ?? '';
-    message.authority = object.authority ?? '';
+    message.id = object.id ?? "";
+    message.licenseType = object.licenseType ?? "";
+    message.country = object.country ?? "";
+    message.authority = object.authority ?? "";
     message.circulationLimit =
       object.circulationLimit !== undefined && object.circulationLimit !== null
         ? Coin.fromPartial(object.circulationLimit)
@@ -578,7 +578,7 @@ export const LicenseCredentialSubject = {
 };
 
 function createBaseRegulatorCredentialSubject(): RegulatorCredentialSubject {
-  return { id: '', name: '', country: '' };
+  return { id: "", name: "", country: "" };
 }
 
 export const RegulatorCredentialSubject = {
@@ -586,13 +586,13 @@ export const RegulatorCredentialSubject = {
     message: RegulatorCredentialSubject,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(18).string(message.name);
     }
-    if (message.country !== '') {
+    if (message.country !== "") {
       writer.uint32(26).string(message.country);
     }
     return writer;
@@ -627,9 +627,9 @@ export const RegulatorCredentialSubject = {
 
   fromJSON(object: any): RegulatorCredentialSubject {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      name: isSet(object.name) ? String(object.name) : '',
-      country: isSet(object.country) ? String(object.country) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      name: isSet(object.name) ? String(object.name) : "",
+      country: isSet(object.country) ? String(object.country) : "",
     };
   },
 
@@ -645,15 +645,15 @@ export const RegulatorCredentialSubject = {
     object: I
   ): RegulatorCredentialSubject {
     const message = createBaseRegulatorCredentialSubject();
-    message.id = object.id ?? '';
-    message.name = object.name ?? '';
-    message.country = object.country ?? '';
+    message.id = object.id ?? "";
+    message.name = object.name ?? "";
+    message.country = object.country ?? "";
     return message;
   },
 };
 
 function createBaseRegistrationCredentialSubject(): RegistrationCredentialSubject {
-  return { id: '', address: undefined, ids: [], legalPersons: [] };
+  return { id: "", address: undefined, ids: [], legalPersons: [] };
 }
 
 export const RegistrationCredentialSubject = {
@@ -661,7 +661,7 @@ export const RegistrationCredentialSubject = {
     message: RegistrationCredentialSubject,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     if (message.address !== undefined) {
@@ -710,7 +710,7 @@ export const RegistrationCredentialSubject = {
 
   fromJSON(object: any): RegistrationCredentialSubject {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       address: isSet(object.address)
         ? Address.fromJSON(object.address)
         : undefined,
@@ -749,7 +749,7 @@ export const RegistrationCredentialSubject = {
     object: I
   ): RegistrationCredentialSubject {
     const message = createBaseRegistrationCredentialSubject();
-    message.id = object.id ?? '';
+    message.id = object.id ?? "";
     message.address =
       object.address !== undefined && object.address !== null
         ? Address.fromPartial(object.address)
@@ -762,7 +762,7 @@ export const RegistrationCredentialSubject = {
 };
 
 function createBaseLegalPerson(): LegalPerson {
-  return { names: [], ctryReg: '' };
+  return { names: [], ctryReg: "" };
 }
 
 export const LegalPerson = {
@@ -773,7 +773,7 @@ export const LegalPerson = {
     for (const v of message.names) {
       Name.encode(v!, writer.uint32(10).fork()).ldelim();
     }
-    if (message.ctryReg !== '') {
+    if (message.ctryReg !== "") {
       writer.uint32(18).string(message.ctryReg);
     }
     return writer;
@@ -805,7 +805,7 @@ export const LegalPerson = {
       names: Array.isArray(object?.names)
         ? object.names.map((e: any) => Name.fromJSON(e))
         : [],
-      ctryReg: isSet(object.ctryReg) ? String(object.ctryReg) : '',
+      ctryReg: isSet(object.ctryReg) ? String(object.ctryReg) : "",
     };
   },
 
@@ -825,21 +825,21 @@ export const LegalPerson = {
   ): LegalPerson {
     const message = createBaseLegalPerson();
     message.names = object.names?.map((e) => Name.fromPartial(e)) || [];
-    message.ctryReg = object.ctryReg ?? '';
+    message.ctryReg = object.ctryReg ?? "";
     return message;
   },
 };
 
 function createBaseName(): Name {
-  return { name: '', type: '' };
+  return { name: "", type: "" };
 }
 
 export const Name = {
   encode(message: Name, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
-    if (message.type !== '') {
+    if (message.type !== "") {
       writer.uint32(18).string(message.type);
     }
     return writer;
@@ -868,8 +868,8 @@ export const Name = {
 
   fromJSON(object: any): Name {
     return {
-      name: isSet(object.name) ? String(object.name) : '',
-      type: isSet(object.type) ? String(object.type) : '',
+      name: isSet(object.name) ? String(object.name) : "",
+      type: isSet(object.type) ? String(object.type) : "",
     };
   },
 
@@ -882,20 +882,20 @@ export const Name = {
 
   fromPartial<I extends Exact<DeepPartial<Name>, I>>(object: I): Name {
     const message = createBaseName();
-    message.name = object.name ?? '';
-    message.type = object.type ?? '';
+    message.name = object.name ?? "";
+    message.type = object.type ?? "";
     return message;
   },
 };
 
 function createBaseAddress(): Address {
   return {
-    addrType: '',
-    thfare: '',
-    premise: '',
-    postcode: '',
-    locality: '',
-    country: '',
+    addrType: "",
+    thfare: "",
+    premise: "",
+    postcode: "",
+    locality: "",
+    country: "",
   };
 }
 
@@ -904,22 +904,22 @@ export const Address = {
     message: Address,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.addrType !== '') {
+    if (message.addrType !== "") {
       writer.uint32(10).string(message.addrType);
     }
-    if (message.thfare !== '') {
+    if (message.thfare !== "") {
       writer.uint32(18).string(message.thfare);
     }
-    if (message.premise !== '') {
+    if (message.premise !== "") {
       writer.uint32(26).string(message.premise);
     }
-    if (message.postcode !== '') {
+    if (message.postcode !== "") {
       writer.uint32(34).string(message.postcode);
     }
-    if (message.locality !== '') {
+    if (message.locality !== "") {
       writer.uint32(42).string(message.locality);
     }
-    if (message.country !== '') {
+    if (message.country !== "") {
       writer.uint32(50).string(message.country);
     }
     return writer;
@@ -960,12 +960,12 @@ export const Address = {
 
   fromJSON(object: any): Address {
     return {
-      addrType: isSet(object.addrType) ? String(object.addrType) : '',
-      thfare: isSet(object.thfare) ? String(object.thfare) : '',
-      premise: isSet(object.premise) ? String(object.premise) : '',
-      postcode: isSet(object.postcode) ? String(object.postcode) : '',
-      locality: isSet(object.locality) ? String(object.locality) : '',
-      country: isSet(object.country) ? String(object.country) : '',
+      addrType: isSet(object.addrType) ? String(object.addrType) : "",
+      thfare: isSet(object.thfare) ? String(object.thfare) : "",
+      premise: isSet(object.premise) ? String(object.premise) : "",
+      postcode: isSet(object.postcode) ? String(object.postcode) : "",
+      locality: isSet(object.locality) ? String(object.locality) : "",
+      country: isSet(object.country) ? String(object.country) : "",
     };
   },
 
@@ -982,26 +982,26 @@ export const Address = {
 
   fromPartial<I extends Exact<DeepPartial<Address>, I>>(object: I): Address {
     const message = createBaseAddress();
-    message.addrType = object.addrType ?? '';
-    message.thfare = object.thfare ?? '';
-    message.premise = object.premise ?? '';
-    message.postcode = object.postcode ?? '';
-    message.locality = object.locality ?? '';
-    message.country = object.country ?? '';
+    message.addrType = object.addrType ?? "";
+    message.thfare = object.thfare ?? "";
+    message.premise = object.premise ?? "";
+    message.postcode = object.postcode ?? "";
+    message.locality = object.locality ?? "";
+    message.country = object.country ?? "";
     return message;
   },
 };
 
 function createBaseId(): Id {
-  return { id: '', type: '' };
+  return { id: "", type: "" };
 }
 
 export const Id = {
   encode(message: Id, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.type !== '') {
+    if (message.type !== "") {
       writer.uint32(18).string(message.type);
     }
     return writer;
@@ -1030,8 +1030,8 @@ export const Id = {
 
   fromJSON(object: any): Id {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      type: isSet(object.type) ? String(object.type) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      type: isSet(object.type) ? String(object.type) : "",
     };
   },
 
@@ -1044,37 +1044,37 @@ export const Id = {
 
   fromPartial<I extends Exact<DeepPartial<Id>, I>>(object: I): Id {
     const message = createBaseId();
-    message.id = object.id ?? '';
-    message.type = object.type ?? '';
+    message.id = object.id ?? "";
+    message.type = object.type ?? "";
     return message;
   },
 };
 
 function createBaseProof(): Proof {
   return {
-    type: '',
-    created: '',
-    proofPurpose: '',
-    verificationMethod: '',
-    signature: '',
+    type: "",
+    created: "",
+    proofPurpose: "",
+    verificationMethod: "",
+    signature: "",
   };
 }
 
 export const Proof = {
   encode(message: Proof, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.type !== '') {
+    if (message.type !== "") {
       writer.uint32(10).string(message.type);
     }
-    if (message.created !== '') {
+    if (message.created !== "") {
       writer.uint32(18).string(message.created);
     }
-    if (message.proofPurpose !== '') {
+    if (message.proofPurpose !== "") {
       writer.uint32(26).string(message.proofPurpose);
     }
-    if (message.verificationMethod !== '') {
+    if (message.verificationMethod !== "") {
       writer.uint32(34).string(message.verificationMethod);
     }
-    if (message.signature !== '') {
+    if (message.signature !== "") {
       writer.uint32(42).string(message.signature);
     }
     return writer;
@@ -1112,15 +1112,15 @@ export const Proof = {
 
   fromJSON(object: any): Proof {
     return {
-      type: isSet(object.type) ? String(object.type) : '',
-      created: isSet(object.created) ? String(object.created) : '',
+      type: isSet(object.type) ? String(object.type) : "",
+      created: isSet(object.created) ? String(object.created) : "",
       proofPurpose: isSet(object.proofPurpose)
         ? String(object.proofPurpose)
-        : '',
+        : "",
       verificationMethod: isSet(object.verificationMethod)
         ? String(object.verificationMethod)
-        : '',
-      signature: isSet(object.signature) ? String(object.signature) : '',
+        : "",
+      signature: isSet(object.signature) ? String(object.signature) : "",
     };
   },
 
@@ -1138,11 +1138,11 @@ export const Proof = {
 
   fromPartial<I extends Exact<DeepPartial<Proof>, I>>(object: I): Proof {
     const message = createBaseProof();
-    message.type = object.type ?? '';
-    message.created = object.created ?? '';
-    message.proofPurpose = object.proofPurpose ?? '';
-    message.verificationMethod = object.verificationMethod ?? '';
-    message.signature = object.signature ?? '';
+    message.type = object.type ?? "";
+    message.created = object.created ?? "";
+    message.proofPurpose = object.proofPurpose ?? "";
+    message.verificationMethod = object.verificationMethod ?? "";
+    message.signature = object.signature ?? "";
     return message;
   },
 };
@@ -1190,7 +1190,7 @@ function fromTimestamp(t: Timestamp): Date {
 function fromJsonTimestamp(o: any): Date {
   if (o instanceof Date) {
     return o;
-  } else if (typeof o === 'string') {
+  } else if (typeof o === "string") {
     return new Date(o);
   } else {
     return fromTimestamp(Timestamp.fromJSON(o));
