@@ -16,7 +16,7 @@ then
     rm -r ~/.millicash
 
     echo "Initialising chain"
-    millicashd init --chain-id=cash cash
+    millicashd init --chain-id=millicash millicash
     echo "y" | millicashd keys add validator
     echo "y" | millicashd keys add euregulator
     echo "y" | millicashd keys add usregulator

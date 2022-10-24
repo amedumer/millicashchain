@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "Create EU Regulator VC to activate the Regulator did"
 millicashd tx regulator activate-regulator-credential \
 TheAuthority EU \

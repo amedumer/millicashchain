@@ -30,24 +30,26 @@ then
     echo "y" | millicashd keys add dora
  
     echo "Adding genesis account"
-    millicashd add-genesis-account $(millicashd keys show validator -a) 1000000000stake --
+    millicashd add-genesis-account $(millicashd keys show validator -a) 1000000000milli --
     # this is to have the accounts on chain 
-    millicashd add-genesis-account $(millicashd keys show lloyds -a) 100000stake
-    millicashd add-genesis-account $(millicashd keys show barclays -a) 100000stake
-    millicashd add-genesis-account $(millicashd keys show hsbc -a) 100000stake
-    millicashd add-genesis-account $(millicashd keys show jpmorgan -a) 100000stake
-    millicashd add-genesis-account $(millicashd keys show bob -a) 100000stake
-    millicashd add-genesis-account $(millicashd keys show alice -a) 100000stake
-    millicashd add-genesis-account $(millicashd keys show dora -a) 100000stake
-    millicashd add-genesis-account $(millicashd keys show charlie -a) 100000stake
-    millicashd add-genesis-account $(millicashd keys show usregulator -a) 100000stake
+    millicashd add-genesis-account $(millicashd keys show lloyds -a) 100000milli
+    millicashd add-genesis-account $(millicashd keys show barclays -a) 100000milli
+    millicashd add-genesis-account $(millicashd keys show hsbc -a) 100000milli
+    millicashd add-genesis-account $(millicashd keys show jpmorgan -a) 100000milli
+    millicashd add-genesis-account $(millicashd keys show bob -a) 100000milli
+    millicashd add-genesis-account $(millicashd keys show alice -a) 100000milli
+    millicashd add-genesis-account $(millicashd keys show dora -a) 100000milli
+    millicashd add-genesis-account $(millicashd keys show charlie -a) 100000milli
+    millicashd add-genesis-account $(millicashd keys show usregulator -a) 100000milli
     ## add the regulator
     regulators=(\"$(millicashd keys show euregulator -a)\",\"$(millicashd keys show usregulator -a)\")
-    millicashd add-genesis-account $(millicashd keys show euregulator -a) 100000stake --regulator $regulators --
-    millicashd gentx validator 700000000stake --chain-id millicash
+    millicashd add-genesis-account $(millicashd keys show euregulator -a) 100000milli --regulator $regulators --
+    millicashd gentx validator 700000000milli --chain-id millicash
     millicashd collect-gentxs
-fi
 
+    sed -i -e 's/stake/milli/g' $GENESIS_FILE
+
+fi
 
 echo "Starting Cosmos Cash chain"
 millicashd start

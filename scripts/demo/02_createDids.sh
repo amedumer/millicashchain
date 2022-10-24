@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "Create a DID doc for the EU Regulator (by the EU Regulator account)"
 millicashd tx did create-did euregulator \
  --from euregulator \
