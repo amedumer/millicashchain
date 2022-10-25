@@ -83,6 +83,8 @@ If you get this output, congratulations 🎉! You have successfully built the Mi
 
 ## Setting up the chain
 
+You can also watch the guide to getting started from [here](https://youtu.be/jFZEB3KuJe8)
+
 We will explain in more details about scripts in the next section, but if you want, you can start the Millicash chain with only two commands:
 
 Open a terminal screen and run this:
