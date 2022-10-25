@@ -1,10 +1,10 @@
 #!/bin/bash
-echo "Create a DID doc for the EU Regulator (by the EU Regulator account)"
-millicashd tx did create-did euregulator \
- --from euregulator \
+echo "Create a DID doc for the UK Regulator (by the UK Regulator account)"
+millicashd tx did create-did ukregulator \
+ --from ukregulator \
  --chain-id millicash -y --broadcast-mode block
 
-millicashd query did did did:millicent:net:millicash:euregulator --output json | jq
+millicashd query did did did:millicent:net:millicash:ukregulator --output json | jq
 
 echo "Create a DID doc for the US Regulator (by the US Regulator account)"
 millicashd tx did create-did usregulator \
