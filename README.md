@@ -150,7 +150,7 @@ This script basically runs scripts from 2 to 6 sequantially.
 This script initialize the chain and wallets. It'll create 11 wallet for you:
 
 - validator
-- euregulator
+- ukregulator
 - usregulator
 - lloyds
 - barclays
@@ -167,10 +167,10 @@ If you want to add any of these wallets to your web wallet, you can use this com
 millicashd keys export [WALLET_NAME] --unarmored-hex --unsafe
 ```
 
-For example if you want to get the private key for `euregulator`, you can use:
+For example if you want to get the private key for `ukregulator`, you can use:
 
 ```text
-millicashd keys export euregulator --unarmored-hex --unsafe
+millicashd keys export ukregulator --unarmored-hex --unsafe
 ```
 
 This script also gives `100,000 milli` coin to each wallet, except for the validator which will get `1,000,000,000 milli` coin.
@@ -185,17 +185,17 @@ This script creates DID documents for every wallet except for validator.
 
 This script:
 
-- Creates Regulator VC (makes regulator) for `euregulator`.
+- Creates Regulator VC (makes regulator) for `ukregulator`.
 - Creates Regulator VC (makes regulator) for `usregulator`.
 
-- Creates Registration VC (registers to the regulator) for `barclays` from `euregulator`.
-- Creates Registration VC (registers to the regulator) for `lloyds` from `euregulator`.
-- Creates Registration VC (registers to the regulator) for `hsbc` from `euregulator`.
+- Creates Registration VC (registers to the regulator) for `barclays` from `ukregulator`.
+- Creates Registration VC (registers to the regulator) for `lloyds` from `ukregulator`.
+- Creates Registration VC (registers to the regulator) for `hsbc` from `ukregulator`.
 - Creates Registration VC (registers to the regulator) for `jpmorgan` from `usregulator`.
 
-- Creates License VC (gives licenses for a specific currency, `sGBP`) for `barclays` from `euregulator`.
-- Creates License VC (gives licenses for a specific currency, `sGBP`) for `lloyds` from `euregulator`.
-- Creates License VC (gives licenses for a specific currency, `sGBP`) for `hsbc` from `euregulator`.
+- Creates License VC (gives licenses for a specific currency, `sGBP`) for `barclays` from `ukregulator`.
+- Creates License VC (gives licenses for a specific currency, `sGBP`) for `lloyds` from `ukregulator`.
+- Creates License VC (gives licenses for a specific currency, `sGBP`) for `hsbc` from `ukregulator`.
 - Creates License VC (gives licenses for a specific currency, `sUSD`) for `jpmorgan` from `usregulator`.
 
 ### 04_issuer
